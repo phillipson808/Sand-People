@@ -1,0 +1,25 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.product-image {
+  width: 33.33%;
+  
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-image {
+  margin: 20px;
+}
+
+.product-desc {
+  text-align: center;
+}

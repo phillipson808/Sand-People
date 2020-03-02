@@ -14,9 +14,9 @@ plugins: [
     resolve: `gatsby-source-shopify`,
     options: {
       // The domain name of your Shopify shop.
-      shopName: `[shopname]`,
+      shopName: `sandpeople`,
       // The storefront access token
-      accessToken: `[token]`,
+      accessToken: `36a908b298bc3054a3b965f3030af92e`,
       apiVersion: "2020-01",
       
       verbose: true,
@@ -30,7 +30,7 @@ plugins: [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `src`,
-      path: `${__dirname}/src/`,
+      path: `${__dirname}/src/img`,
     },
   },
   {
