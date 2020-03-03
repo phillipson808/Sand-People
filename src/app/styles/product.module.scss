@@ -5,7 +5,6 @@
 
 .product-image {
   width: 33.33%;
-  
 }
 
 .grid {
@@ -18,8 +17,35 @@
 
 .grid-image {
   margin: 20px;
+  display: relative;
 }
 
 .product-desc {
+  text-align: center;
+  margin: 20px;
+}
+
+.page-title {
+  padding-left: 20px;
+}
+
+.product-link {
+  background: rgb(26, 26, 26);
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 40px;
+  color: #fff;
+  text-decoration: none;
+  font-family: arial;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.product-link:hover {
+  background: rgb(46, 177, 159)
+}
+
+
+.link-container {
   text-align: center;
 }

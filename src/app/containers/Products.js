@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 
@@ -39,17 +39,23 @@ const Products = () => {
   console.log(data)
   return (
     <div className={styles.container}>
-      <h1>Products</h1>
+      <h1 className={styles.pageTitle}>Products</h1>
       <div className={styles.grid}>
         {data.map(item => {
           return (
             <div className={styles.productImage} key={item.node.shopifyId}>
-              <Img className={styles.gridImage}
-                fluid={
-                  item.node.images[0].localFile.childImageSharp.fluid
-                }
-              />
-              <p className={styles.productDesc}>{item.node.title}</p>
+    
+                <Img
+                  className={styles.gridImage}
+                  fluid={item.node.images[0].localFile.childImageSharp.fluid}
+                ></Img>
+
+              <h4 className={styles.productDesc}>{item.node.title}</h4>
+              <p className={styles.productDesc}>
+                $
+                {Number(item.node.priceRange.maxVariantPrice.amount).toFixed(2)}
+              </p>
+              <div className={styles.linkContainer}><Link className={styles.productLink} to='/'>View</Link></div>
             </div>
           )
         })}
