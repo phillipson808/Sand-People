@@ -27,6 +27,12 @@ export const StoreProvider = ({ children }) => {
         variantId: variantId,
         quantity: 1
       }]
+      const addItems = await client.checkout.addLineItems(
+        newCheckout.id,
+        lineItems
+      )
+      console.log(addItems)
+      console.log(addItems.webUrl)
 
     } catch(e) {
       console.error(e);

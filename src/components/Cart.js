@@ -5,7 +5,7 @@ const Cart = () => {
   const { isCartOpen, addProductToCart } = useContext(StoreContext)
   return (
     <div>
-      <button onClick={addProductToCart}>Cart</button>
+      <button>Cart</button>
     </div>
   )
 }

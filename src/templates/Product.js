@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { StoreContext } from '../context/StoreContext'
+import AddToCart from '../components/AddToCart';
 
 
 export const query = graphql`
@@ -15,6 +17,7 @@ export const query = graphql`
       }
       variants {
         availableForSale
+        shopifyId
       }
       productType
       description
@@ -23,12 +26,14 @@ export const query = graphql`
 `
 
 const Product = props => {
+  let variantId = props.data.shopifyProduct.variants[0].shopifyId;
+
   return (
     <Layout>
       <h1>{props.data.shopifyProduct.title}</h1>
       <p>${Number(props.data.shopifyProduct.priceRange.maxVariantPrice.amount).toFixed(2)}</p>
       <p>{props.data.shopifyProduct.description}</p>
-      <button>Add to Cart</button>
+      <AddToCart variantId={variantId} />
     </Layout>
   )
 }
