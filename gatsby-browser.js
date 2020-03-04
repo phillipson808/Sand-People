@@ -1,1 +1,7 @@
-export { default as wrapRootElement } from './src/app/ReduxWrapper'
+import React from "react"
+import { StoreProvider } from "./src/context/StoreContext"
+
+export const wrapRootElement = ({ element }) => {
+  return <StoreProvider>{element}</StoreProvider>
+}
+

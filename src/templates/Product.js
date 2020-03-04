@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from 'gatsby'
-import client from '../app/client'
-import Layout from '../app/components/Layout'
+import Layout from '../components/Layout'
 
 
 export const query = graphql`
@@ -22,9 +21,6 @@ export const query = graphql`
     }
   }
 `
-let checkout =  client.checkout.create().then((checkout) => {
-  console.log('checkout', checkout)
-})
 
 const Product = props => {
   return (

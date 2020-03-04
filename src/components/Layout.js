@@ -1,13 +1,13 @@
 import React from "react"
-import Head from "../components/Head"
-import Cart from '../containers/Cart'
+import Head from "./Head"
+import Nav from './Nav'
 
 const Layout = props => {
 
   return (
       <div>
         <Head />
-        <Cart />
+        <Nav />
         {props.children}
       </div>
   )

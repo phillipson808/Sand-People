@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import styles from "../styles/product.module.scss"
+import styles from '../styles/product.module.scss'
 import Img from "gatsby-image"
 
 const Products = () => {
