@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { getProducts } from "../actions/productActions"
 
-export default class Cart extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+const Cart = (props) => {
+  console.log('state', props)
+  return <div></div>
 }
+
+
+export default connect(state => ({
+  test: state
+}), null)(Cart)

@@ -10,6 +10,7 @@ const Products = () => {
         edges {
           node {
             title
+            handle
             images {
               localFile {
                 childImageSharp {
@@ -55,7 +56,7 @@ const Products = () => {
                 $
                 {Number(item.node.priceRange.maxVariantPrice.amount).toFixed(2)}
               </p>
-              <div className={styles.linkContainer}><Link className={styles.productLink} to='/'>View</Link></div>
+              <div className={styles.linkContainer}><Link className={styles.productLink} to={`/products/${item.node.handle}`}>View</Link></div>
             </div>
           )
         })}

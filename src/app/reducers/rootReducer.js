@@ -1,7 +1,16 @@
+import ShopifyBuy from 'shopify-buy'
 
+const client = ShopifyBuy.buildClient({
+  domain: "sandpeople.myshopify.com",
+  storefrontAccessToken: "36a908b298bc3054a3b965f3030af92e",
+})
 
 const initialState = {
-  products: []
+  cart: [],
+  client: client,
+  addProductToCart: () => {
+    console.log('added');
+  }
 }
 
 const rootReducer = (state=initialState, action) => {
@@ -12,7 +21,7 @@ const rootReducer = (state=initialState, action) => {
     case GET_PRODUCTS:
       state = {
         ...state,
-        products: action.payload
+        cart: action.payload
       }
       break;
       default:
