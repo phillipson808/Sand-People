@@ -11,53 +11,89 @@ const defaultValues = {
   cart: [],
   addProductToCart: () => {},
   client: client,
+  checkout: {
+    lineItems: [],
+  }
 }
 
 export const StoreContext = createContext(defaultValues)
 
-
-
 export const StoreProvider = ({ children }) => {
-  const [checkoutId, setCheckoutId] = useState({})
+  const [checkout, setCheckout] = useState(defaultValues.checkout)
+  const [isCartOpen, setCartOpen] = useState(false)
+  //setCheckout is the setState function in React Hooks.
+
+  const toggleCartOpen = () => {
+    setCartOpen(!isCartOpen)
+  }
 
   useEffect(() => {
     initializeCheckout()
   }, []) //If you leave second argument as blank array it acts like componentdidmount
 
-  const initializeCheckout = async() => {
+  const initializeCheckout = async () => {
     try {
-      const newCheckout = await client.checkout.create();
-      setCheckoutId(newCheckout.id)
-    } catch(e) {
+      //Check if it's a browser
+      const isBrowser = typeof window !== "undefined"
+      //Check if ID exists
+      const currentCheckoutId = isBrowser
+        ? localStorage.getItem("checkout_id")
+        : null
 
-    }
+      //If there isn't a checkout in local storage, set it to null so we can make a new one.
+      let newCheckout = null
+
+      //If ID exists, fetch checkout
+      if (currentCheckoutId) {
+        newCheckout = await client.checkout.fetch(currentCheckoutId)
+      } else {
+        newCheckout = await client.checkout.create()
+        localStorage.setItem('checkout_id', newCheckout.id)
+      }
+      //Set checkout to state. New checkout method from shopify comes with an ID.
+      setCheckout(newCheckout)
+    } catch (e) {}
   }
 
-
-  const addProductToCart = async (variantId) => {
-    try{
-      const lineItems = [{
-        variantId: variantId,
-        quantity: 1
-      }]
-      const addItems = await client.checkout.addLineItems(
-        checkoutId,
+  const addProductToCart = async variantId => {
+    try {
+      const lineItems = [
+        {
+          variantId: variantId,
+          quantity: 1,
+        },
+      ]
+      const newCheckout = await client.checkout.addLineItems(
+        checkout.id,
         lineItems
       )
-      console.log(addItems)
-      console.log(addItems.webUrl)
-
-    } catch(e) {
-      console.error(e);
+      setCheckout(newCheckout)
+    } catch (e) {
+      console.error(e)
     }
   }
 
+  const deleteProductFromCart = async variantId => {
+    try {
+      const lineItemsToRemove = [variantId]
+      const newCheckout = await client.checkout.removeLineItems(checkout.id, lineItemsToRemove)
+      setCheckout(newCheckout);
+
+
+    } catch(e) {
+      console.log(e)
+    }
+  }
 
   return (
     <StoreContext.Provider
       value={{
         ...defaultValues,
+        checkout,
         addProductToCart,
+        deleteProductFromCart,
+        toggleCartOpen,
+        isCartOpen,
       }}
     >
       {children}
