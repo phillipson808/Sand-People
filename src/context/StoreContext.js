@@ -13,10 +13,15 @@ const defaultValues = {
   client: client,
   checkout: {
     lineItems: [],
-  }
+  },
 }
 
+
+
+
 export const StoreContext = createContext(defaultValues)
+//Check if it's a browser
+const isBrowser = typeof window !== "undefined"
 
 export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultValues.checkout)
@@ -31,10 +36,26 @@ export const StoreProvider = ({ children }) => {
     initializeCheckout()
   }, []) //If you leave second argument as blank array it acts like componentdidmount
 
+  
+
+
+  //Get new checkout (useful for after a customer completes payment for an order to reset cart.)
+  const getNewId = async () => {
+    try {
+      const newCheckout = await client.checkout.create()
+      if (isBrowser) {
+        localStorage.setItem("checkout_id", newCheckout.id)
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+
+
+
   const initializeCheckout = async () => {
     try {
-      //Check if it's a browser
-      const isBrowser = typeof window !== "undefined"
       //Check if ID exists
       const currentCheckoutId = isBrowser
         ? localStorage.getItem("checkout_id")
@@ -46,11 +67,12 @@ export const StoreProvider = ({ children }) => {
       //If ID exists, fetch checkout
       if (currentCheckoutId) {
         newCheckout = await client.checkout.fetch(currentCheckoutId)
+        if (newCheckout.completedAt) {
+          newCheckout = await getNewId()
+        }
       } else {
-        newCheckout = await client.checkout.create()
-        localStorage.setItem('checkout_id', newCheckout.id)
+        newCheckout = await getNewId()
       }
-      //Set checkout to state. New checkout method from shopify comes with an ID.
       setCheckout(newCheckout)
     } catch (e) {}
   }
@@ -68,6 +90,7 @@ export const StoreProvider = ({ children }) => {
         lineItems
       )
       setCheckout(newCheckout)
+
     } catch (e) {
       console.error(e)
     }
@@ -76,11 +99,12 @@ export const StoreProvider = ({ children }) => {
   const deleteProductFromCart = async variantId => {
     try {
       const lineItemsToRemove = [variantId]
-      const newCheckout = await client.checkout.removeLineItems(checkout.id, lineItemsToRemove)
-      setCheckout(newCheckout);
-
-
-    } catch(e) {
+      const newCheckout = await client.checkout.removeLineItems(
+        checkout.id,
+        lineItemsToRemove
+      )
+      setCheckout(newCheckout)
+    } catch (e) {
       console.log(e)
     }
   }

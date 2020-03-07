@@ -4,7 +4,8 @@ import { animated } from "react-spring"
 
 const Cart = ({ style }) => {
   //Style is the prop that is being passed in to create animation.
-  const { isCartOpen, checkout, toggleCartOpen, deleteProductFromCart} = useContext(StoreContext)
+  //Shopify test card #: 4242424242424242
+  const { checkout, toggleCartOpen, deleteProductFromCart} = useContext(StoreContext)
   console.log(checkout)
   return (
     <animated.div

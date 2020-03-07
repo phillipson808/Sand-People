@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, } from "react"
 import { StoreContext } from "../context/StoreContext"
 import { Link } from "gatsby"
 import Cart from "./Cart"
@@ -12,6 +12,13 @@ const Nav = () => {
     leave: { transform: "translate3d(100%, 0, 0)" },
   })
 
+  // const qty = checkout.lineItems.reduce((total, item) => {
+  //   return total + item.quantity
+  // }, 0)
+
+  
+
+
   return (
     <div>
       <div>
@@ -22,7 +29,7 @@ const Nav = () => {
           <li>
             <Link to="/products">Products</Link>
           </li>
-          <button onClick={toggleCartOpen}>Cart({checkout.lineItems.length})</button>
+          <button onClick={toggleCartOpen}>Cart(0)</button>
         </ul>
       </div>
       {cartTransitions.map(({ item, key, props }) => {
