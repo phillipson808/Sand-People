@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import ShopifyScript from "../../public/static/ShopifyScript"
+import ShopifyScript from "../../public/static/ShopifyScript.js"
 
 
 const Head = () => {

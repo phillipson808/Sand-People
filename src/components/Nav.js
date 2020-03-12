@@ -1,8 +1,10 @@
-import React, { useContext, } from "react"
+import React, { useContext, useEffect } from "react"
 import { StoreContext } from "../context/StoreContext"
 import { Link } from "gatsby"
 import Cart from "./Cart"
 import { useTransition } from "react-spring"
+
+
 
 const Nav = () => {
   const { isCartOpen, toggleCartOpen, checkout } = useContext(StoreContext)
@@ -12,11 +14,31 @@ const Nav = () => {
     leave: { transform: "translate3d(100%, 0, 0)" },
   })
 
-  // const qty = checkout.lineItems.reduce((total, item) => {
-  //   return total + item.quantity
-  // }, 0)
+  let qty;
 
+  if(checkout) {
+    qty = checkout.lineItems.reduce((total, item) => {
+      return total + item.quantity
+     }, 0);
+  } else {
+    qty = 0
+  }
   
+
+  const getQty = () => {
+    qty = checkout.lineItems.reduce((total, item) => {
+      return total + item.quantity
+     }, 0)
+  }
+
+  useEffect(() => {
+    getQty()
+
+  },[])
+
+
+
+
 
 
   return (
@@ -29,7 +51,7 @@ const Nav = () => {
           <li>
             <Link to="/products">Products</Link>
           </li>
-          <button onClick={toggleCartOpen}>Cart(0)</button>
+          <button onClick={toggleCartOpen}>Cart({qty})</button>
         </ul>
       </div>
       {cartTransitions.map(({ item, key, props }) => {

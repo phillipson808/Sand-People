@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react"
 import Client from "shopify-buy"
-
+  //Shopify test card #: 4242424242424242
 const client = Client.buildClient({
   domain: "sandpeople.myshopify.com",
   storefrontAccessToken: "36a908b298bc3054a3b965f3030af92e",
