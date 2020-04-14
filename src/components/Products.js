@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from '../styles/product.module.scss'
-import Img from "gatsby-image"
+import Img from "gatsby-image";
 
 const Products = () => {
   let data = useStaticQuery(graphql`
@@ -37,7 +37,6 @@ const Products = () => {
     }
   `)
   data = data.allShopifyProduct.edges
-  console.log(data)
   return (
     <div className={styles.container}>
       <h1 className={styles.pageTitle}>Products</h1>
