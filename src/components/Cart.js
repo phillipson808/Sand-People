@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { StoreContext } from "../context/StoreContext"
 import { animated } from "react-spring"
+import styles from '../styles/cart.module.scss'
 
 const Cart = ({ style }) => {
   //Style is the prop that is being passed in to create animation.
@@ -15,11 +16,11 @@ const Cart = ({ style }) => {
         right: 0,
         width: "50%",
         height: "100%",
-        background: "grey",
+        background: "#f4f4f4",
         boxShadow: "var(--elevation-4)",
         padding: 60,
         ...style,
-      }}
+      }} className={styles.container}
     >
       <button onClick={toggleCartOpen}>Close Cart</button>
 

@@ -36,7 +36,7 @@ const Nav = () => {
   }, [])
 
   return (
-    <div>
+    <div id={styles.NavContainer}>
       <nav id={styles.Nav}>
         <img src={logo} alt="logo" className={styles.logo}></img>
         <ul className={styles.links}>
@@ -52,20 +52,23 @@ const Nav = () => {
           <li>
             <Link to="/products">About</Link>
           </li>
-          <li>
-              <div className={styles.cartIconContainer}>
-                <button className={styles.cartIcon} onClick={toggleCartOpen}>
-                    <img src={cartImage} alt="Cart Icon"></img>
-                    <p className={styles.itemqty}>{qty}</p>
-                </button>
-              </div>
-          </li>
         </ul>
       </nav>
-      {cartTransitions.map(({ item, key, props }) => {
-        //Item takes place of isCartOpen boolean
-        return item && <Cart key={key} style={props} />
-      })}
+      {/*Cart Icon starts here...*/}
+      <div className={styles.cartContainer} onClick={toggleCartOpen}>
+        <div className={styles.cart}>
+          
+          <img src={cartImage}></img>
+
+          <span className={styles.qty}>{qty}</span>
+          
+        </div>
+
+        {cartTransitions.map(({ item, key, props }) => {
+          //Item takes place of isCartOpen boolean
+          return item && <Cart key={key} style={props} />
+        })}
+      </div>
     </div>
   )
 }
