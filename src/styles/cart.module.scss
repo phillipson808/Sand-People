@@ -1,22 +1,25 @@
 .container {
-  background: #fff;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  padding: 60;
-}
-
-.close {
-  padding: 10px;
   position: absolute;
   top: 0;
   right: 0;
-  background: #2EB69A;
+  width: 40%;
+  height: 100%;
+  background: #f4f4f4;
+  box-shadow: var(--elevation-4);
+  padding: 60;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #2eb69a;
   border: none;
   color: #fff;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   font-weight: 800;
   font-size: 14px;
 }
@@ -27,8 +30,74 @@
 
 .checkoutButton {
   width: 100%;
-  background: rgb(43,167,142);
+  background: rgb(17, 17, 17);
   color: #fff;
+  margin: 0 auto;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 10px;
+  margin-top: 40px;
+  text-decoration: none;
   position: absolute;
   bottom: 0;
+  text-align: center;
+}
+
+.checkoutButton span {
+  padding-left: 10px;
+}
+
+.checkoutButton:hover {
+  background: rgb(43, 167, 142);
+}
+
+.itemContainer {
+  margin: 20px;
+  width: 80%;
+}
+
+.header {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+}
+
+.header img {
+  width: 30px;
+}
+
+.header span {
+  padding-left: 10px;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+
+.ruler {
+  border-bottom: 1px solid #000;
+  background-color: orange;
+  margin: 20px 0px 20px 0px;
+}
+
+.productImage {
+  height: 120px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: rgb(70, 70, 70);
+}
+
+.cartItemContainer h4{
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  margin-bottom: 10px;
+  letter-spacing: 0.8;
 }

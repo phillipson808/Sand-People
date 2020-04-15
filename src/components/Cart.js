@@ -1,45 +1,89 @@
 import React, { useContext } from "react"
 import { StoreContext } from "../context/StoreContext"
 import { animated } from "react-spring"
-import styles from '../styles/cart.module.scss'
+import styles from "../styles/cart.module.scss"
+import cardIcon from "../img/cc-icon-white.svg"
 
-const Cart = ({ style }) => {
+const Cart = ({ style, qty }) => {
   //Style is the prop that is being passed in to create animation.
   //Shopify test card #: 4242424242424242
-  const { checkout, toggleCartOpen, deleteProductFromCart} = useContext(StoreContext)
-  console.log(checkout)
+  const { checkout, toggleCartOpen, deleteProductFromCart, addProductToCart, removeQuantityFromCart } = useContext(
+    StoreContext
+  )
+
   return (
     <animated.div
       style={{
-        position: "fixed",
-        top: 0,
-        right: 0,
-        width: "50%",
-        height: "100%",
-        background: "#f4f4f4",
-        boxShadow: "var(--elevation-4)",
-        padding: 60,
         ...style,
-      }} className={styles.container}
+      }}
+      className={[styles.container]}
     >
-      <button onClick={toggleCartOpen}>Close Cart</button>
+      {console.log(StoreContext)}
+      <div className={styles.header}>
+        <h3>Your Cart</h3>
+      </div>
+      <button onClick={toggleCartOpen} className={styles.close}>
+        X
+      </button>
+      <div className={styles.itemContainer}>
+        <div>
+          {checkout.lineItems.map(item => {
+            console.log(checkout.lineItems)
+            return (
+              <div key={item.id} className={styles.cartItemContainer}>
+                <div className={styles.imageContainer}>
+                  <img
+                    src={item.variant.image.src}
+                    alt="Product Image"
+                    className={styles.productImage}
+                  ></img>
+                  <div>
+                    <p>${Number(item.variant.price).toFixed(2)}</p>
+                    <p>Qty: {item.quantity}</p>
+                  </div>
+                </div>
+                <p>{item.title}</p>
+      
+                <button
+                  onClick={() => {
+                    deleteProductFromCart(item.id)
+                  }}
+                  className={styles.removeButton}
+                >
+                  Remove
+                </button>
 
-      <h3>Cart</h3>
-      {checkout.lineItems.map(item => {
-        return (
-          <div key={item.id}>
-            <h4>{item.title}</h4>
-            <p>${Number(item.variant.price).toFixed(2)}</p>
-            <p>{item.quantity}</p>
-            <button onClick={() => {
-              deleteProductFromCart(item.id)
-            }}>Remove</button>
-          </div>
-        )
-      })}
-      <hr />
-      <p>Total: ${checkout.totalPrice}</p>
-      <a href={checkout.webUrl} target='_blank'>Checkout</a>
+                <button
+                  onClick={() => {
+                    addProductToCart(item.variant.id)
+                  }}
+                  className={styles.addButton}
+                >
+                  Add
+                </button>
+                <button
+                onClick={() => {
+                  removeQuantityFromCart(item.id, item.quantity-1)
+                }}
+              >
+                Subtract
+              </button>
+              </div>
+            )
+          })}
+        </div>
+        <div className={styles.ruler}></div>
+        <p>{qty} Items</p>
+        <p>Subtotal: ${checkout.totalPrice}</p>
+      </div>
+      <a
+        href={checkout.webUrl}
+        className={styles.checkoutButton}
+        target="_blank"
+      >
+        <img src={cardIcon} width="20px"></img>
+        <span>Checkout</span>
+      </a>
     </animated.div>
   )
 }

@@ -57,16 +57,14 @@ const Nav = () => {
       {/*Cart Icon starts here...*/}
       <div className={styles.cartContainer} onClick={toggleCartOpen}>
         <div className={styles.cart}>
-          
           <img src={cartImage}></img>
-
           <span className={styles.qty}>{qty}</span>
-          
         </div>
-
+      </div>
+      <div>
         {cartTransitions.map(({ item, key, props }) => {
           //Item takes place of isCartOpen boolean
-          return item && <Cart key={key} style={props} />
+          return item && <Cart key={key} style={props} qty={qty} />
         })}
       </div>
     </div>
