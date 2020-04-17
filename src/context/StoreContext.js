@@ -9,12 +9,14 @@ const client = Client.buildClient({
 const defaultValues = {
   isCartOpen: false,
   isCartEmpty: true,
+
   cart: [],
   addProductToCart: () => {},
   client: client,
   checkout: {
     lineItems: [],
   },
+ 
 }
 
 
@@ -27,6 +29,7 @@ const isBrowser = typeof window !== "undefined"
 export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultValues.checkout)
   const [isCartOpen, setCartOpen] = useState(false)
+  const [isCartEmpty, setCartEmpty] = useState(true)
   //setCheckout is like the setState function in React Hooks.
 
   const toggleCartOpen = () => {
@@ -53,9 +56,14 @@ export const StoreProvider = ({ children }) => {
   }
 
   //See if cart is empty. Fill this in later.
-  const isCartEmpty = async () => {
+  const checkIfCartEmpty = async (checkout) => {
+    console.log('RUNNING', isCartEmpty)
     try {
-
+      if(checkout.lineItems.length !== 0) {
+        setCartEmpty(false)
+      } else {
+        setCartEmpty(true)
+      }
 
     }catch(e) {
       console.error(e);
@@ -142,7 +150,7 @@ export const StoreProvider = ({ children }) => {
         removeQuantityFromCart,
         toggleCartOpen,
         isCartOpen,
-        isCartEmpty
+        checkIfCartEmpty
       }}
     >
       {children}

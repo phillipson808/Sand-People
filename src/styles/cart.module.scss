@@ -2,48 +2,38 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 40%;
-  height: 100%;
-  background: #f4f4f4;
+  width: 400px;
+  margin-top: 70px;
+  background: #fff;
   box-shadow: var(--elevation-4);
   padding: 60;
-  box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
-}
-
-.close {
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: #2eb69a;
-  border: none;
-  color: #fff;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-}
-
-.close:hover {
-  background: rgb(43, 167, 142);
+  box-shadow: 10px 10px 3px rgb(224, 224, 224);
+  border: 2px solid #f4f4f4;
+  border-radius: 10px;
 }
 
 .checkoutButton {
-  width: 100%;
-  background: rgb(17, 17, 17);
   color: #fff;
-  margin: 0 auto;
   font-family: "Source Sans Pro", sans-serif;
-  padding: 10px;
-  margin-top: 40px;
-  text-decoration: none;
-  position: absolute;
-  bottom: 0;
   text-align: center;
+  text-decoration: none;
+}
+
+.checkoutContainer {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  background-color: rgb(26, 26, 26);
+  padding: 10px 0px;
+}
+
+
+.checkoutContainer:hover {
+  background-color: #2EB69A;
 }
 
 .checkoutButton span {
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .checkoutButton:hover {
@@ -51,16 +41,15 @@
 }
 
 .itemContainer {
-  margin: 20px;
+  margin: 20px 20px 80px 20px;
   width: 80%;
 }
 
 .header {
-  width: 50%;
-  height: 50px;
   display: flex;
   align-items: center;
   padding-left: 20px;
+  padding-top: 20px;
   font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 }
 
@@ -70,13 +59,13 @@
 
 .header span {
   padding-left: 10px;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 }
 
 .ruler {
-  border-bottom: 1px solid #000;
-  background-color: orange;
-  margin: 20px 0px 20px 0px;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 20px auto 20px;
+  width: 100%;
 }
 
 .productImage {
@@ -95,9 +84,53 @@
   color: rgb(70, 70, 70);
 }
 
-.cartItemContainer h4{
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+.cartItemContainer h4 {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   font-weight: 100;
   margin-bottom: 10px;
   letter-spacing: 0.8;
+}
+
+.table tr td {
+  text-align: center;
+}
+
+.table {
+  border: 1px solid #f4f4f4;
+  border-collapse: collapse;
+  width: 100px;
+  height: 30%;
+  background: #fff;
+  margin-top: 10px;
+}
+
+.qty {
+  width: 40%;
+}
+
+.qtybtn {
+  width: 30%;
+  background: #f4f4f4;
+  border: none;
+}
+
+.qtybtn:hover {
+  background: #dadada;
+  cursor: pointer;
+}
+
+.imageTitle {
+  display: flex;
+}
+
+.titleContainer {
+  margin-left: 20px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

@@ -37,6 +37,7 @@ const Products = () => {
     }
   `)
   data = data.allShopifyProduct.edges
+  console.log('DATA', data)
   return (
     <div className={styles.container}>
       <h1 className={styles.pageTitle}>Products</h1>
@@ -64,17 +65,5 @@ const Products = () => {
   )
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     products: state.products,
-//   }
-// }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getProducts: payload => dispatch(getProducts(payload)),
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Products)
 export default Products

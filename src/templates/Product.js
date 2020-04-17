@@ -28,6 +28,8 @@ export const query = graphql`
 const Product = props => {
   let variantId = props.data.shopifyProduct.variants[0].shopifyId;
 
+  console.log ('PRODUCT ', query)
+
   return (
     <Layout>
       <h1>{props.data.shopifyProduct.title}</h1>
