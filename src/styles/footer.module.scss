@@ -1,0 +1,29 @@
+.footer {
+  height: 70px;
+  background: #000;
+  margin-top: 20px;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+ 
+}
+.logo img {
+  height: 50px;
+}
+
+.copyright p {
+  color: #f1f1f1;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.social img {
+  padding-left: 10px;
+}
