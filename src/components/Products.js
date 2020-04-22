@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import styles from '../styles/product.module.scss'
-import Img from "gatsby-image";
+import styles from "../styles/product.module.scss"
+import Img from "gatsby-image"
 
 const Products = () => {
   let data = useStaticQuery(graphql`
@@ -37,26 +37,29 @@ const Products = () => {
     }
   `)
   data = data.allShopifyProduct.edges
-  console.log('DATA', data)
+  console.log("DATA", data)
   return (
     <div className={styles.container}>
-      <h1 className={styles.pageTitle}>Products</h1>
+      <h1 className={styles.pageTitle}>All Products</h1>
       <div className={styles.grid}>
         {data.map(item => {
           return (
             <div className={styles.productImage} key={item.node.shopifyId}>
-    
-                <Img
-                  className={styles.gridImage}
-                  fluid={item.node.images[0].localFile.childImageSharp.fluid}
-                ></Img>
-
-              <h4 className={styles.productDesc}>{item.node.title}</h4>
-              <p className={styles.productDesc}>
-                $
-                {Number(item.node.priceRange.maxVariantPrice.amount).toFixed(2)}
-              </p>
-              <div className={styles.linkContainer}><Link className={styles.productLink} to={`/products/${item.node.handle}`}>View</Link></div>
+              <Link to={`/products/${item.node.handle}`}><Img
+                className={styles.gridImage}
+                fluid={item.node.images[0].localFile.childImageSharp.fluid}
+              ></Img></Link>
+              <div className={styles.content}>
+                <div>
+                  <h4 className={styles.productDesc}>{item.node.title}</h4>
+                  <p className={styles.productDesc}>
+                    $
+                    {Number(
+                      item.node.priceRange.maxVariantPrice.amount
+                    ).toFixed(2)}
+                  </p>
+                </div>
+              </div>
             </div>
           )
         })}
@@ -64,6 +67,5 @@ const Products = () => {
     </div>
   )
 }
-
 
 export default Products

@@ -38,7 +38,7 @@ const Nav = () => {
   return (
     <div id={styles.NavContainer}>
       <nav id={styles.Nav}>
-        <img src={logo} alt="logo" className={styles.logo}></img>
+        <Link to='/'><img src={logo} alt="logo" className={styles.logo}></img></Link>
         <ul className={styles.links}>
           <li>
             <Link to="/">Home</Link>
