@@ -33,11 +33,10 @@ const Cart = ({ style, qty }) => {
       }}
       className={[styles.container]}
     >
-      {console.log(StoreContext)}
       <div className={styles.header}>
         <h3>Your Cart</h3>
       </div>
-      <div className={styles.blah}>
+      <div>
         <div className={styles.itemContainer}>
           <div className={cartEmpty ? styles.hide : styles.show}>
             {checkout.lineItems.map(item => {

@@ -24,8 +24,8 @@ const Home = () => {
           <div className={styles.locations}>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.kauai}></div>
-              <button>Kauai</button>
-            </div>
+              <Link to='/kauai'><button className={styles.showcaseButton}>Kauai</button></Link>
+              </div>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.oahu}></div>
               <button>Oahu</button>
@@ -45,7 +45,7 @@ const Home = () => {
             inspired products.
           </p>
           <Link to="/products">
-            <button className={styles.showcaseButton}>Shop Gifts</button>
+          <Link to='/'><button className={styles.showcaseButton}>Shop Gifts</button></Link>
           </Link>
         </div>
       </div>
@@ -57,7 +57,7 @@ const Home = () => {
           inspired products.
         </p>
         <Link to="/products">
-          <button className={styles.showcaseButton}>Shop Gifts</button>
+        <Link to='/'><button className={styles.showcaseButton}>Shop Jewelry</button></Link>
         </Link>
       </div>
     </div>
@@ -69,7 +69,7 @@ const Home = () => {
         inspired products.
       </p>
       <Link to="/products">
-        <button className={styles.showcaseButton}>Shop Gifts</button>
+        <Link to='/'><button className={styles.showcaseButton}>Learn More</button></Link>
       </Link>
     </div>
   </div>

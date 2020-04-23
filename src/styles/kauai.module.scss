@@ -1,0 +1,44 @@
+.image {
+  width: 400px;
+  height: 400px;
+  background-image: url('../img/kauai.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+}
+
+.container h2 {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.container p {
+  font-size: 12px;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  padding-top: 10px;
+  letter-spacing: 1px;
+}
+
+.phone {
+  padding-right: 2px;
+}
+
+.locationcontent {
+  display: flex;
+}
+
+.locationcontent img {
+  padding-top: 10px;
+  padding-right: 5px;
+}
+.location {
+  margin-bottom: 20px;
+  padding-left: 40px;
+}
