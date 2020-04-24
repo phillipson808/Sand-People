@@ -7,16 +7,20 @@ import styles from "../styles/nav.module.scss"
 import logo from "../img/sp-logo.svg"
 import cartImage from "../img/SP-cart-icon.svg"
 
-
 const Nav = () => {
-  const { isCartOpen, toggleCartOpen, checkout } = useContext(StoreContext)
+  const {
+    isCartOpen,
+    toggleCartOpen,
+    checkout,
+    toggleDisplay,
+    setShowDisplay,
+    showDisplay,
+  } = useContext(StoreContext)
   const cartTransitions = useTransition(isCartOpen, null, {
     from: { transform: "translate3d(100%, 0, 0)" },
     enter: { transform: "translate3d(0, 0, 0)" },
     leave: { transform: "translate3d(100%, 0, 0)" },
   })
-
- 
 
   let qty
 
@@ -34,6 +38,8 @@ const Nav = () => {
     }, 0)
   }
 
+  console.log(showDisplay, "DISPLAY")
+
   useEffect(() => {
     getQty()
   }, [])
@@ -44,11 +50,37 @@ const Nav = () => {
         <Link to="/">
           <img src={logo} alt="logo" className={styles.logo}></img>
         </Link>
-        <div>
+        <div onClick={toggleDisplay}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
         </div>
+
+        <ul
+          className={styles.mobileLinks}
+          id={showDisplay ? styles.show : styles.hide}
+        >
+          <div className={styles.closeContainer} onClick={toggleDisplay}>
+            <p className={styles.close}>
+              X
+            </p>
+          </div>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/products">Locations</Link>
+          </li>
+          <li>
+            <Link to="/products">About</Link>
+          </li>
+          <li>
+            <Link to="/products">Cart</Link>
+          </li>
+        </ul>
       </nav>
 
       <div id={styles.NavContainer}>

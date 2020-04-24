@@ -9,7 +9,7 @@ const client = Client.buildClient({
 const defaultValues = {
   isCartOpen: false,
   isCartEmpty: true,
-
+  showDisplay: false,
   cart: [],
   addProductToCart: () => {},
   client: client,
@@ -30,6 +30,7 @@ export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultValues.checkout)
   const [isCartOpen, setCartOpen] = useState(false)
   const [isCartEmpty, setCartEmpty] = useState(true)
+  const [showDisplay, setShowDisplay] = useState(false)
   //setCheckout is like the setState function in React Hooks.
 
   const toggleCartOpen = () => {
@@ -67,6 +68,16 @@ export const StoreProvider = ({ children }) => {
 
     }catch(e) {
       console.error(e);
+    }
+  }
+
+  const toggleDisplay = async () => {
+    try {
+      console.log('fired')
+      setShowDisplay(!showDisplay)
+      console.log(showDisplay)
+    } catch (e) {
+      console.error(e)
     }
   }
 
@@ -150,7 +161,9 @@ export const StoreProvider = ({ children }) => {
         removeQuantityFromCart,
         toggleCartOpen,
         isCartOpen,
-        checkIfCartEmpty
+        checkIfCartEmpty,
+        toggleDisplay,
+        showDisplay
       }}
     >
       {children}
