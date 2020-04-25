@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
 
 #Showcase {
   background: url("../img/waimea-showcase.jpg");
@@ -14,7 +14,7 @@
   top: 50%;
   left: 75px;
   transform: translateY(-50%);
-  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
   letter-spacing: 5px;
   width: 300px;
 }
@@ -24,7 +24,7 @@
 }
 
 .title p {
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   letter-spacing: 2px;
   font-size: 13px;
   margin-top: 10px;
@@ -40,7 +40,7 @@
 }
 
 .title button:hover {
-  background: rgba(0,0,0, 0.10);
+  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -50,10 +50,31 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 1100px) {
+  .locations {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #kauai {
+    width: 100%;
+  }
+
+  #maui {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #oahu {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
 .island {
   height: 320px;
   width: 350px;
-  background: orange;
 }
 
 .container {
@@ -62,26 +83,26 @@
 }
 
 #kauai {
-  background-image: url('../img/kauai.jpg');
+  background-image: url("../img/kauai.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #oahu {
-  background-image: url('../img/waimea-bay.jpg');
+  background-image: url("../img/waimea-bay.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #maui {
-  background-image: url('../img/maui.jpg');
+  background-image: url("../img/maui.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .container {
   text-align: center;
-  font-family: 'Josefin Sans';
+  font-family: "Josefin Sans";
   font-size: 14px;
 }
 
@@ -115,7 +136,7 @@
   margin: 0 auto;
   color: #fff;
   position: relative;
-  background: url('../img/ala-moana.jpg');
+  background: url("../img/ala-moana.jpg");
   background-position: center;
   background-size: cover;
   margin-top: 30px;
@@ -130,26 +151,25 @@
 }
 
 .giftsTitle h1 {
-  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
   letter-spacing: 3px;
   font-size: 30px;
   padding-bottom: 10px;
 }
 
-
 .giftsTitle p {
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
 }
 
 .showcaseButton {
-    background: none;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 8px;
-    margin-top: 15px;
-    width: 100px;
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px;
+  margin-top: 15px;
+  width: 100px;
 }
 
 .jeweleryShowcase {
@@ -158,7 +178,7 @@
   margin: 0 auto;
   color: #fff;
   position: relative;
-  background: url('../img/Jewelry.png');
+  background: url("../img/Jewelry.png");
   background-position: center;
   background-size: cover;
   margin-top: 30px;
@@ -170,7 +190,7 @@
   margin: 0 auto;
   color: #fff;
   position: relative;
-  background: url('../img/palm.jpg');
+  background: url("../img/palm.jpg");
   background-position: center;
   background-size: cover;
   margin-top: 30px;

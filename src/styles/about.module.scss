@@ -1,0 +1,51 @@
+.showcase {
+  background: url('../img/palm.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  position: relative;
+}
+
+.showcase h1 {
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: #fff;
+  
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 75px;
+  transform: translateY(-50%);
+  font-family: 'Source Sans', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.title p {
+  padding-top: 5px;
+  padding-left: 3px;
+}
+
+.content h3 {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  width: 50%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.content {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.content p {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  width: 50%;
+  margin-top: 20px;
+  font-size: 12px;
+}

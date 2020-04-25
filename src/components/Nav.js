@@ -63,7 +63,7 @@ const Nav = () => {
           <div className={styles.closeContainer} onClick={toggleDisplay}>
             <p className={styles.close}>
               X
-            </p>
+            </p> 
           </div>
           <li>
             <Link to="/">Home</Link>
@@ -75,7 +75,7 @@ const Nav = () => {
             <Link to="/products">Locations</Link>
           </li>
           <li>
-            <Link to="/products">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
             <Link to="/products">Cart</Link>
@@ -99,7 +99,7 @@ const Nav = () => {
               <Link to="/products">Locations</Link>
             </li>
             <li>
-              <Link to="/products">About</Link>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
