@@ -11,6 +11,7 @@
   border: 2px solid #f4f4f4;
   border-radius: 10px;
   z-index: 1;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
 }
 
 .checkoutButton {
@@ -107,6 +108,7 @@
 
 .qty {
   width: 40%;
+  font-size: 12px;
 }
 
 .qtybtn {
@@ -122,6 +124,8 @@
 
 .imageTitle {
   display: flex;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 
 .titleContainer {
@@ -134,4 +138,18 @@
 
 .hide {
   display: none;
+}
+
+
+.totalqty  {
+  font-size: 14px;
+  padding-bottom: 3px;
+  color: rgb(151, 151, 151);
+}
+
+.subtotal {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
 }

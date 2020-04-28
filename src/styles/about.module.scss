@@ -33,9 +33,11 @@
 .content h3 {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-size: 12px;
-  width: 50%;
+  width: 80%;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .content {
@@ -46,6 +48,8 @@
 .content p {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   width: 50%;
+  margin: 0 auto;
+  text-align: center;
   margin-top: 20px;
   font-size: 12px;
 }

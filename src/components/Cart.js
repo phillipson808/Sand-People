@@ -91,8 +91,8 @@ const Cart = ({ style, qty }) => {
             <div className={styles.ruler}></div>
 
             <div className={styles.quantityContainer} id={styles.hide}>
-              <p>Cart Quantity: {qty}</p>
-              <p>Subtotal: ${checkout.totalPrice}</p>
+              <p className={styles.totalqty}>Cart Quantity: {qty}</p>
+              <p className={styles.subtotal}>Subtotal: ${checkout.totalPrice}</p>
               <a
                 href={checkout.webUrl}
                 className={styles.checkoutButton}
