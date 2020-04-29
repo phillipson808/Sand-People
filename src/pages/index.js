@@ -30,11 +30,15 @@ const Home = () => {
             </div>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.oahu}></div>
-              <button>Oahu</button>
+              <Link to="/oahu">
+              <button className={styles.showcaseButton}>Oahu</button>
+            </Link>
             </div>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.maui}></div>
-              <button>Maui</button>
+              <Link to="/maui">
+                <button className={styles.showcaseButton}>Maui</button>
+              </Link>
             </div>
           </div>
 

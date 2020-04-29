@@ -72,7 +72,7 @@ const Nav = () => {
             <Link to="/products">Products</Link>
           </li>
           <li>
-            <Link to="/products">Locations</Link>
+            <Link to="/locations">Locations</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
@@ -96,7 +96,7 @@ const Nav = () => {
               <Link to="/products">Products</Link>
             </li>
             <li>
-              <Link to="/products">Locations</Link>
+              <Link to="/locations">Locations</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
