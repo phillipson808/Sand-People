@@ -24,8 +24,10 @@ const Home = () => {
           <div className={styles.locations}>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.kauai}></div>
-              <Link to='/kauai'><button className={styles.showcaseButton}>Kauai</button></Link>
-              </div>
+              <Link to="/kauai">
+                <button className={styles.showcaseButton}>Kauai</button>
+              </Link>
+            </div>
             <div className={styles.islandContainer}>
               <div className={styles.island} id={styles.oahu}></div>
               <button>Oahu</button>
@@ -35,44 +37,53 @@ const Home = () => {
               <button>Maui</button>
             </div>
           </div>
+
+          <div className={styles.giftsShowcase}>
+            <div className={styles.giftsTitle}>
+              <h1>Gifts</h1>
+              <p>
+                Find gifts for every occasion with our diverse collection of
+                ocean inspired products.
+              </p>
+              <Link to="/products">
+                <Link to="/">
+                  <button className={styles.showcaseButton}>Shop Gifts</button>
+                </Link>
+              </Link>
+            </div>
+          </div>
+          <div className={styles.jeweleryShowcase}>
+            <div className={styles.giftsTitle}>
+              <h1>Jewelry</h1>
+              <p>
+                Find gifts for every occasion with our diverse collection of
+                ocean inspired products.
+              </p>
+              <Link to="/products">
+                <Link to="/">
+                  <button className={styles.showcaseButton}>
+                    Shop Jewelry
+                  </button>
+                </Link>
+              </Link>
+            </div>
+          </div>
+          <div className={styles.ourstory}>
+            <div className={styles.giftsTitle}>
+              <h1>Our Story</h1>
+              <p>
+                Find gifts for every occasion with our diverse collection of
+                ocean inspired products.
+              </p>
+              <Link to="/products">
+                <Link to="/">
+                  <button className={styles.showcaseButton}>Learn More</button>
+                </Link>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-      <div className={styles.giftsShowcase}>
-        <div className={styles.giftsTitle}>
-          <h1>Gifts</h1>
-          <p>
-            Find gifts for every occasion with our diverse collection of ocean
-            inspired products.
-          </p>
-          <Link to="/products">
-          <Link to='/'><button className={styles.showcaseButton}>Shop Gifts</button></Link>
-          </Link>
-        </div>
-      </div>
-      <div className={styles.jeweleryShowcase}>
-      <div className={styles.giftsTitle}>
-        <h1>Jewelry</h1>
-        <p>
-          Find gifts for every occasion with our diverse collection of ocean
-          inspired products.
-        </p>
-        <Link to="/products">
-        <Link to='/'><button className={styles.showcaseButton}>Shop Jewelry</button></Link>
-        </Link>
-      </div>
-    </div>
-    <div className={styles.ourstory}>
-    <div className={styles.giftsTitle}>
-      <h1>Our Story</h1>
-      <p>
-        Find gifts for every occasion with our diverse collection of ocean
-        inspired products.
-      </p>
-      <Link to="/products">
-        <Link to='/'><button className={styles.showcaseButton}>Learn More</button></Link>
-      </Link>
-    </div>
-  </div>
     </Layout>
   )
 }
