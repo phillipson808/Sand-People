@@ -1,16 +1,15 @@
 import React from "react"
-import Products from '../components/Products'
-import Layout from '../components/Layout'
-
+import Products from "../components/Products"
+import Layout from "../components/Layout"
 
 const ProductPage = () => {
   return (
     <Layout>
-    <Products />
+      <div>
+        <Products />
+      </div>
     </Layout>
   )
 }
 
-export default ProductPage;
-
-
+export default ProductPage

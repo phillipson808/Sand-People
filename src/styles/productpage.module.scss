@@ -1,13 +1,11 @@
 .productContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 70%;
   margin: 0 auto;
 }
 
-.productContainer img {
-  height: 500px;
-}
+
 
 .content {
   margin-left: 30px;
@@ -29,10 +27,18 @@
 
 .content button {
   background: none;
-  padding: 10px;
   border: 1px solid #000;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   width: 150px;
+  height: 40px;
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.imageContainer img {
+  width: 400px;
 }
 
 .content button:hover {
@@ -46,4 +52,87 @@
   font-size: 12px;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   line-height: 25px;
+}
+
+//Quantity Styles
+
+.qty {
+  width: 40%;
+  font-size: 12px;
+}
+
+.qtybtn {
+  width: 30%;
+  background: #f4f4f4;
+  border: none;
+}
+
+.table tr td {
+  text-align: center;
+}
+
+.table {
+  border: 1px solid #f4f4f4;
+  border-collapse: collapse;
+  height: 40px;
+  background: #fff;
+  width: 150px;
+}
+
+.cartandquantity {
+  display: flex;
+  width: 100%;
+  margin: 15px 0px 15px 0px;
+}
+
+.content button {
+  margin-left: 30px;
+}
+
+
+//Media Queries
+
+@media only screen and (max-width: 1100px){
+  .productContainer {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+
+  }
+
+  .productContainer img {
+    text-align: left;
+  }
+
+  .productContainer h1 {
+    text-align: left;
+  }
+
+  .productContainer p {
+    text-align: left;
+  }
+
+  .cartandquantity {
+    justify-content: left;
+  }
+
+
+}
+
+@media only screen and (max-width: 1000px) {
+.productContainer {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+
+.content {
+  text-align: left;
+  width: 90%;
+}
+
+
+
+
 }

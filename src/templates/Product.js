@@ -5,8 +5,6 @@ import { StoreContext } from "../context/StoreContext"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 
-
-
 export const query = graphql`
   query($slug: String!) {
     shopifyProduct(handle: { eq: $slug }) {
@@ -37,20 +35,17 @@ export const query = graphql`
 `
 
 const Product = props => {
-  const {
-    removeQuantityFromCart,
-  } = useContext(StoreContext)
+  const { removeQuantityFromCart, addProductToCart } = useContext(StoreContext)
   let variantId = props.data.shopifyProduct.variants[0].shopifyId
-  console.log(
-    "Variant ID",
-    props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
-  )
+  console.log("Props", props.data.shopifyProduct)
   let imageSrc =
     props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
   return (
     <Layout>
       <div className={styles.productContainer}>
-        <img src={imageSrc} alt="Product Image"></img>
+        <div className={styles.imageContainer}>
+          <img src={imageSrc} alt="Product Image"></img>
+        </div>
         <div className={styles.content}>
           <h1>{props.data.shopifyProduct.title}</h1>
           <p>
@@ -59,9 +54,21 @@ const Product = props => {
               props.data.shopifyProduct.priceRange.maxVariantPrice.amount
             ).toFixed(2)}
           </p>
-          <p className={styles.description}>{props.data.shopifyProduct.description}</p>
-          
-          <AddToCart variantId={variantId} />
+          <div className={styles.cartandquantity}>
+            <table className={styles.table}>
+              <tbody>
+                <tr>
+                  <td className={styles.qtybtn}>-</td>
+                  <td className={styles.qty}>1</td>
+                  <td className={styles.qtybtn}>+</td>
+                </tr>
+              </tbody>
+            </table>
+            <AddToCart variantId={variantId} className={styles.button} />
+          </div>
+          <p className={styles.description}>
+            {props.data.shopifyProduct.description}
+          </p>
         </div>
       </div>
     </Layout>
