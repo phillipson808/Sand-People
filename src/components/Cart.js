@@ -11,11 +11,9 @@ const Cart = ({ style, qty }) => {
     checkout,
     addProductToCart,
     removeQuantityFromCart,
-    checkIfCartEmpty,
   } = useContext(StoreContext)
 
   const [cartEmpty, setCartEmpty] = useState(true)
-  let isCartEmpty = true
 
   useEffect(() => {
     if (checkout.lineItems.length !== 0) {
@@ -23,7 +21,6 @@ const Cart = ({ style, qty }) => {
     } else {
       setCartEmpty(true)
     }
-    console.log("is cart empty", isCartEmpty)
   })
 
   return (

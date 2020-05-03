@@ -16,6 +16,7 @@ const defaultValues = {
   checkout: {
     lineItems: [],
   },
+  qty: 1,
  
 }
 
@@ -31,6 +32,7 @@ export const StoreProvider = ({ children }) => {
   const [isCartOpen, setCartOpen] = useState(false)
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
+  const [qty, setAddQty] = useState(1);
   //setCheckout is like the setState function in React Hooks.
 
   const toggleCartOpen = () => {
@@ -106,12 +108,12 @@ export const StoreProvider = ({ children }) => {
     } catch (e) {}
   }
 
-  const addProductToCart = async variantId => {
+  const addProductToCart = async (variantId, quantity) => {
     try {
       const lineItems = [
         {
           variantId: variantId,
-          quantity: 1,
+          quantity: quantity,
         },
       ]
       const newCheckout = await client.checkout.addLineItems(
@@ -151,6 +153,18 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
+  const addtoQty = async(productQty) => {
+
+    try{
+      {console.log('HIT ADD TO QTY')}
+      setAddQty(productQty + qty)
+ 
+    } catch(e) {
+      console.log(e);
+    }
+   
+  }
+
   return (
     <StoreContext.Provider
       value={{
@@ -163,7 +177,8 @@ export const StoreProvider = ({ children }) => {
         isCartOpen,
         checkIfCartEmpty,
         toggleDisplay,
-        showDisplay
+        showDisplay,
+        addtoQty
       }}
     >
       {children}

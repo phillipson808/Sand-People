@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { StoreContext } from "../context/StoreContext"
@@ -35,11 +35,17 @@ export const query = graphql`
 `
 
 const Product = props => {
-  const { removeQuantityFromCart, addProductToCart } = useContext(StoreContext)
+  const { removeQuantityFromCart, addProductToCart, addtoQty } = useContext(StoreContext)
+
+  const [qty, setAddQty] = useState(1);
+
   let variantId = props.data.shopifyProduct.variants[0].shopifyId
   console.log("Props", props.data.shopifyProduct)
-  let imageSrc =
-    props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
+  let imageSrc = props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
+  
+
+
+
   return (
     <Layout>
       <div className={styles.productContainer}>
@@ -58,13 +64,16 @@ const Product = props => {
             <table className={styles.table}>
               <tbody>
                 <tr>
-                  <td className={styles.qtybtn}>-</td>
-                  <td className={styles.qty}>1</td>
-                  <td className={styles.qtybtn}>+</td>
+                  <td className={styles.qtybtn} onClick={() => {
+                    if(qty>1) {setAddQty(qty-1)} else{return;}
+                  
+                  }}>-</td>
+                  <td className={styles.qty}>{qty}</td>
+                  <td className={styles.qtybtn} onClick={() => {setAddQty(qty+1)}}>+</td>
                 </tr>
               </tbody>
             </table>
-            <AddToCart variantId={variantId} className={styles.button} />
+            <AddToCart variantId={variantId} qty={qty} className={styles.button} />
           </div>
           <p className={styles.description}>
             {props.data.shopifyProduct.description}
