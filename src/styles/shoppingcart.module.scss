@@ -1,25 +1,11 @@
-* {
-  a {
-    text-decoration: none;
-  }
-}
 .container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 300px;
-  min-height: 250px;
-  padding: 0px 20px 0px 20px;
-  margin-top: 70px;
-  background: #fff;
-  box-shadow: var(--elevation-4);
-  box-shadow: 10px 10px 3px rgba(0,0,0,0.25);
-  border: 2px solid #f4f4f4;
-  border-radius: 10px;
-  z-index: 1;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin: 0 auto;
   
 }
+
+
 
 .checkoutButton {
   color: #fff;
@@ -55,11 +41,11 @@
 .itemContainer {
   margin: 20px;
   width: 80%;
+  margin: 0 auto;
   position: relative;
 }
 
 #header {
-  padding-left: 20px;
   padding-top: 20px;
   font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 }
@@ -198,7 +184,7 @@
   width: 50%;
 }
 
-.viewCart {
+.keepShoppingbtn {
   text-align: center;
   margin-top: 20px;
   border: 1px solid rgb(26, 26, 26);
@@ -208,33 +194,32 @@
 
 
 
-.viewCart p {
+.keepShoppingbtn a {
   text-decoration: none;
   color: #000;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-size: 13px;
   letter-spacing: 2px;
+  
 }
 
-.cartLink.viewCart p {
-  color: #fff;
-}
-
-.viewCart:hover {
+.keepShoppingbtn:hover {
   cursor: pointer;
   background: rgb(26, 26, 26);
 
 
-  .cartLink {
+  .keepShoppingText {
     color: #fff;
-    text-decoration: none;
-  }
+    transition: all 1s ease-in;
 
-  .cartLinkText {
-    color: #fff;
   }
 
 
 }
 
-
+.keepShoppingText {
+  color: #000;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

@@ -84,16 +84,17 @@
 
 //Cart Styles
 .cartContainer {
-  background-color: #2eb69a;
+  background-color: #30ac93;
   display: flex;
   align-items: center;
   width: 70px;
   margin-left: 10px;
+  transition: background 1s ease-in-out;
 }
 
 .cartContainer:hover {
   cursor: pointer;
-  background-color: #2eaa91;
+  background-color: #0fa189;
 }
 
 .cart {

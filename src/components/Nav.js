@@ -13,7 +13,6 @@ const Nav = () => {
     toggleCartOpen,
     checkout,
     toggleDisplay,
-    setShowDisplay,
     showDisplay,
   } = useContext(StoreContext)
   const cartTransitions = useTransition(isCartOpen, null, {
@@ -42,6 +41,9 @@ const Nav = () => {
 
   useEffect(() => {
     getQty()
+    if(isCartOpen === true) {
+      toggleCartOpen();
+    }
   }, [])
 
   return (
