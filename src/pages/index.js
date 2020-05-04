@@ -20,24 +20,16 @@ const Home = () => {
           </div>
         </div>
         <div className={styles.container}>
-          <h1>Locations</h1>
-          <div className={styles.locations}>
-            <div className={styles.islandContainer}>
-              <div className={styles.island} id={styles.kauai}></div>
-              <Link to="/kauai">
-                <button className={styles.showcaseButton}>Kauai</button>
-              </Link>
-            </div>
-            <div className={styles.islandContainer}>
-              <div className={styles.island} id={styles.oahu}></div>
-              <Link to="/oahu">
-              <button className={styles.showcaseButton}>Oahu</button>
-            </Link>
-            </div>
-            <div className={styles.islandContainer}>
-              <div className={styles.island} id={styles.maui}></div>
-              <Link to="/maui">
-                <button className={styles.showcaseButton}>Maui</button>
+          <div className={styles.locationsShowcase}>
+            <div className={styles.giftsTitle}>
+              <h1>Locations</h1>
+              <p>
+                View our locations on Oahu, Kauai, and Maui.
+              </p>
+              <Link to="/locations">
+                <Link to="/locations">
+                  <button className={styles.showcaseButton}>View Locations</button>
+                </Link>
               </Link>
             </div>
           </div>

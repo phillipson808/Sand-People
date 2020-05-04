@@ -41,6 +41,10 @@
   width: 400px;
 }
 
+.content button {
+  transition: 0.5s all ease-in-out;
+}
+
 .content button:hover {
   cursor: pointer;
   background: rgb(27, 27, 27);

@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #Showcase {
   background: url("../img/waimea-showcase.jpg");
   background-size: cover;
   background-position: center;
   height: 456px;
   position: relative;
+}
+
+#Home {
+  width: 100%;
 }
 
 .title {
@@ -48,33 +58,12 @@
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
 }
 
 .container {
   width: 100%;
-}
-@media only screen and (max-width: 1200px) {
-  .locations {
-    display: block;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  #kauai {
-    width: 100%;
-  }
-
-  #maui {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  #oahu {
-    width: 100%;
-    margin-top: 20px;
-  }
 }
 
 .island {
@@ -83,26 +72,8 @@
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-}
-
-#kauai {
-  background-image: url("../img/kauai.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#oahu {
-  background-image: url("../img/waimea-bay.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#maui {
-  background-image: url("../img/maui.jpg");
-  background-size: cover;
-  background-position: center;
 }
 
 .container {
@@ -133,6 +104,18 @@
 
 .islandContainer button:hover {
   cursor: pointer;
+}
+
+.locationsShowcase {
+  height: 372px;
+  width: 90%;
+  margin: 0 auto;
+  color: #fff;
+  position: relative;
+  background: url("../img/kauai.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: 30px;
 }
 
 .giftsShowcase {
@@ -202,4 +185,68 @@
   background-position: center;
   background-size: cover;
   margin-top: 30px;
+}
+
+
+//TABLET MEDIA QUERY 
+@media only screen and (max-width: 768px) {
+  #Showcase {
+    text-align: left;
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 50%;
+  }
+
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .title p {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .giftsTitle {
+    width: 60%;
+
+  }
+
+
+}
+
+//Largest Iphone media queries
+
+@media only screen and (max-width: 600px) {
+
+
+  .giftsTitle {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .giftsTitle h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px 0px 10px 0px;
+  }
+
+  .giftsTitle p {
+    width: 65%;
+    margin: 0 auto;
+    font-size: 11px;
+  }
+  
+.container {
+  width: 95%;
+}
+
+
+
+
 }
