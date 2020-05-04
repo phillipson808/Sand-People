@@ -1,103 +1,153 @@
-.showcase {
-  background: url("../img/ala-moana.jpg");
+#Showcase {
+  height: 450px;
+  background: url('../img/ala-moana-store.jpg');
   background-size: cover;
   background-position: center;
-  height: 350px;
-  width: 100%;
   position: relative;
+  color: #fff;
+
 }
 
 .showcaseContent {
-  color: #fff;
+  font-family: 'Source Sans', Arial, Helvetica, sans-serif;
   position: absolute;
   top: 50%;
+  left: 50px;
   transform: translateY(-50%);
-  margin-left: 45px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #fff;
 }
+
 
 .showcaseContent h1 {
-  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
-  letter-spacing: 3px;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   font-size: 30px;
-  padding-bottom: 10px;
-  text-align: left;
-  padding-left: 0;
-}
-
-.showcaseContent p {
-  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  letter-spacing: 2px;
-  width: 60%;
-}
-
-/* Content CSS starts Here */
-
-.locationsContainer {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.kauai {
-  margin: 20px auto;
-  display: flex;
-  justify-content: space-around;
-}
-.kauaiImage {
-  background: url("../img/kauai.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 40%;
-}
-
-.locationsContent p {
-  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-}
-
-.locationPhone {
-  display: flex;
-}
-
-.locationsContent {
-  margin-left: 20px;
-}
-
-.locationsContent h2 {
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  font-size: 14px;
   padding-bottom: 5px;
 }
 
-.locationsContent h1 {
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  font-size: 24px;
+//Island Div Styles
+
+.islandContainer {
+  margin-top: 50px;
+  width: 90%;
+  margin: 50px auto 50px 20px;
+}
+
+
+.islandContent {
+font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+display: flex;
+width: 100%;
+justify-content: space-between;
+
+}
+
+.islandImageContainer {
+  height: 350px;
+  width: 450px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 25px;
+}
+
+.islandImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 350px;
+}
+
+.islandTextContainer h1 {
+  font-size: 22px;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   letter-spacing: 2px;
-  padding-bottom: 10px;
-
 }
 
-.locationsContent p {
+.islandFlexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.address {
+  margin: 20px 0px 20px 0px;
+  padding-right: 50px;
+}
+
+.phoneContainer {
+  display: flex;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.address h3 {
+  letter-spacing: 2px;
+  font-size: 15px;
+  padding-bottom: 12px;
+}
+
+.address p {
   font-size: 12px;
-  padding-top: 4px;
+  letter-spacing: 0.5px;
 }
 
-.phone {
-  padding-left: 5px;
-  margin-top: 5px;
+.phoneContainer img {
+  padding-right: 6px;
 }
 
-.locationPhone img {
-  margin-top: 9px;
-}
-
-.hanalei {
-  margin-top: 20px;
+.ruler {
+  border-top: 1px solid rgb(172, 172, 172);
+  margin: 10px 0px 0px 0px;
 }
 
 
-.oahuImage {
-  background: url("../img/waimea-bay.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 50%;
+
+.directionsbtn {
+  background: none;
+  border: 1px solid #000;
+  color: #000;
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s ease-in-out;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+.directionsbtn:hover {
+  background: rgb(0, 0, 0);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .islandContent {
+    display: block;
+    width: 100%;
+  }
+
+  .islandFlexContainer {
+    justify-content: flex-start;
+  }
+
+  .islandTextContainer {
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .islandImageContainer {
+  
+    display: none;
+  }
+  
+  .islandImage {
+    display: none;
+    right: 0;
+    bottom: 0;
+    height: 350px;
+  }
+
+  
+
 }
