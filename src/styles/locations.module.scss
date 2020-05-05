@@ -39,20 +39,40 @@
   justify-content: space-between;
 }
 
-.islandImageContainer {
+.oahuImageContainer {
   height: 350px;
   width: 450px;
   overflow: hidden;
   position: relative;
   margin-right: 25px;
+  background: url('../img/moke.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
-.islandImage {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.mauiImageContainer {
   height: 350px;
+  width: 450px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 25px;
+  background: url('../img/maui-compressor.jpg');
+  background-position: center;
+  background-size: cover;
 }
+
+.kauaiImageContainer {
+  height: 350px;
+  width: 450px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 25px;
+  background: url('../img/kauai.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+
 
 .islandTextContainer {
   margin-left: 20px;
@@ -152,7 +172,7 @@
     margin-top: 50px;
   }
 
-  .islandImageContainer {
+  .oahuImageContainer,.mauiImageContainer,.kauaiImageContainer {
     display: none;
   }
 
@@ -192,6 +212,18 @@
   .showcaseContent p {
     width: 65%;
     margin: 0 auto;
+  }
+
+  .showcaseContent {
+    font-family: "Source Sans", Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1rem;
+    color: #fff;
   }
   
 
