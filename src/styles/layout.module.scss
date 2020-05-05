@@ -1,0 +1,7 @@
+body, html {
+  height: 100%;
+}
+
+.contentContainer {
+  min-height: calc(100vh - 160px);
+}
