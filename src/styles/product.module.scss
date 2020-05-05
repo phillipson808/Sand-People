@@ -1,5 +1,32 @@
+#Showcase {
+  height: 375px;
+  background: url("../img/product-display.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+
+.showcaseContent {
+  font-family: "Source Sans", Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.showcaseContent h1 {
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+
+
 .container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -12,7 +39,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
