@@ -124,6 +124,10 @@
   display: none;
 }
 
+.hamburger:hover {
+  cursor: pointer;
+}
+
 .mobileLinks {
   display: flex;
   position: fixed;

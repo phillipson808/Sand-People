@@ -23,13 +23,12 @@ const Home = () => {
           <div className={styles.locationsShowcase}>
             <div className={styles.giftsTitle}>
               <h1>Locations</h1>
-              <p>
-                View our locations on Oahu, Kauai, and Maui.
-              </p>
+              <p>View our locations on Oahu, Kauai, and Maui.</p>
+
               <Link to="/locations">
-                <Link to="/locations">
-                  <button className={styles.showcaseButton}>View Locations</button>
-                </Link>
+                <button className={styles.showcaseButton}>
+                  View Locations
+                </button>
               </Link>
             </div>
           </div>
@@ -41,10 +40,8 @@ const Home = () => {
                 Find gifts for every occasion with our diverse collection of
                 ocean inspired products.
               </p>
-              <Link to="/products">
-                <Link to="/">
-                  <button className={styles.showcaseButton}>Shop Gifts</button>
-                </Link>
+              <Link to="/gifts">
+                <button className={styles.showcaseButton}>Shop Gifts</button>
               </Link>
             </div>
           </div>
@@ -55,12 +52,8 @@ const Home = () => {
                 Find gifts for every occasion with our diverse collection of
                 ocean inspired products.
               </p>
-              <Link to="/products">
-                <Link to="/">
-                  <button className={styles.showcaseButton}>
-                    Shop Jewelry
-                  </button>
-                </Link>
+              <Link to="/jewelry">
+                <button className={styles.showcaseButton}>Shop Jewelry</button>
               </Link>
             </div>
           </div>
@@ -72,9 +65,7 @@ const Home = () => {
                 ocean inspired products.
               </p>
               <Link to="/products">
-                <Link to="/">
-                  <button className={styles.showcaseButton}>Learn More</button>
-                </Link>
+                <button className={styles.showcaseButton}>Learn More</button>
               </Link>
             </div>
           </div>

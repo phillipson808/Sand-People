@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { StoreContext } from "../context/StoreContext"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 
@@ -35,7 +34,6 @@ export const query = graphql`
 `
 
 const Product = props => {
-  const { removeQuantityFromCart, addProductToCart, addtoQty } = useContext(StoreContext)
 
   const [qty, setAddQty] = useState(1);
 

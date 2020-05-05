@@ -52,7 +52,7 @@ const Nav = () => {
         <Link to="/">
           <img src={logo} alt="logo" className={styles.logo}></img>
         </Link>
-        <div onClick={toggleDisplay}>
+        <div onClick={toggleDisplay} className={styles.hamburger}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
