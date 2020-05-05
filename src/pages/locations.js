@@ -37,7 +37,7 @@ const locations = () => {
                 <p>600 Kailua Road #118, Kailua, HI 96734</p>
                 <div className={styles.phoneContainer}>
                   <img src={phone}></img>
-                  <p>(808) 261-8878</p>
+                  <a href="tel:808-261-8878">(808) 261-8878</a>
                 </div>
                 <a href="https://compressor.io/compress" target="_blank">
                   <button className={styles.directionsbtn}>Directions</button>
@@ -48,7 +48,7 @@ const locations = () => {
                 <p>600 Kailua Road #117, Kailua, HI 96734</p>
                 <div className={styles.phoneContainer}>
                   <img src={phone}></img>
-                  <p>(808) 261-4689</p>
+                  <a href="tel:808-261-4689">(808) 261-4689</a>
                 </div>
 
                 <a href="https://compressor.io/compress" target="_blank">
@@ -65,7 +65,7 @@ const locations = () => {
                 </p>
                 <div className={styles.phoneContainer}>
                   <img src={phone}></img>
-                  <p>(808) 826-1008</p>
+                  <a href="tel:808-955-8883">(808) 955-8883</a>
                 </div>
                 <a href="https://compressor.io/compress" target="_blank">
                   <button className={styles.directionsbtn}>Directions</button>
@@ -77,7 +77,7 @@ const locations = () => {
                 <p>66-249 Kamehameha Hwy, Haleiwa, HI 96712</p>
                 <div className={styles.phoneContainer}>
                   <img src={phone}></img>
-                  <p>(808) 637-3373</p>
+                  <a href="tel:808-637-3373">(808) 637-3373</a>
                 </div>
                 <a href="https://compressor.io/compress" target="_blank">
                   <button className={styles.directionsbtn}>Directions</button>
@@ -86,12 +86,14 @@ const locations = () => {
 
               <div className={styles.address}>
                 <h3>Sand People Int'l Marketplace</h3>
-                <p><i>*International Marketplace</i></p>
-                <br/>
+                <p>
+                  <i>*International Marketplace</i>
+                </p>
+                <br />
                 <p>2330 Kalakaua Avenue #207, Honolulu, HI 96815</p>
                 <div className={styles.phoneContainer}>
                   <img src={phone}></img>
-                  <p>(808) 800-3314</p>
+                  <a href="tel:808-800-3314">(808) 800-3314</a>
                 </div>
                 <a href="https://compressor.io/compress" target="_blank">
                   <button className={styles.directionsbtn}>Directions</button>

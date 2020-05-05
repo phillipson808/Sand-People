@@ -84,6 +84,17 @@
   padding-top: 12px;
 }
 
+.phoneContainer a {
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.phoneContainer a:hover {
+  text-decoration: underline;
+}
+
 .address h3 {
   letter-spacing: 2px;
   font-size: 15px;
@@ -173,6 +184,15 @@
     font-size: 13px;
   }
 
+  .showcaseContent {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .showcaseContent p {
+    width: 65%;
+    margin: 0 auto;
+  }
   
 
 }
