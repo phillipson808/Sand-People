@@ -36,55 +36,55 @@ const Cart = ({ style, qty }) => {
       <div>
         <div className={styles.itemContainer}>
           <div className={cartEmpty ? styles.hide : styles.show}>
-            {checkout.lineItems.map(item => {
-              console.log(checkout.lineItems)
-              return (
-                <div key={item.id} className={styles.cartItemContainer}>
-                  <div className={styles.imageContainer}>
-                    <div className={styles.imageTitle}>
-                      <img
-                        src={item.variant.image.src}
-                        alt="Product Image"
-                        className={styles.productImage}
-                      ></img>
-                      <div className={styles.titleContainer}>
-                        <p>{item.title}</p>
-                        <table className={styles.table}>
-                          <tbody>
-                            <tr>
-                              <td
-                                className={styles.qtybtn}
-                                onClick={() => {
-                                  removeQuantityFromCart(
-                                    item.id,
-                                    item.quantity - 1
-                                  )
-                                }}
-                              >
-                                -
-                              </td>
-                              <td className={styles.qty}>{item.quantity}</td>
-                              <td
-                                className={styles.qtybtn}
-                                onClick={() => {
-                                  addProductToCart(item.variant.id)
-                                }}
-                              >
-                                +
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+            <div className={styles.productContainer}>
+              {checkout.lineItems.map(item => {
+                return (
+                  <div key={item.id} className={styles.cartItemContainer}>
+                    <div className={styles.imageContainer}>
+                      <div className={styles.imageTitle}>
+                        <img
+                          src={item.variant.image.src}
+                          alt="Product Image"
+                          className={styles.productImage}
+                        ></img>
+                        <div className={styles.titleContainer}>
+                          <p>{item.title}</p>
+                          <div className={styles.itemPrice}>
+                            <p>${Number(item.variant.price).toFixed(2)}</p>
+                          </div>
+                          <table className={styles.table}>
+                            <tbody>
+                              <tr>
+                                <td
+                                  className={styles.qtybtn}
+                                  onClick={() => {
+                                    removeQuantityFromCart(
+                                      item.id,
+                                      item.quantity - 1
+                                    )
+                                  }}
+                                >
+                                  -
+                                </td>
+                                <td className={styles.qty}>{item.quantity}</td>
+                                <td
+                                  className={styles.qtybtn}
+                                  onClick={() => {
+                                    addProductToCart(item.variant.id)
+                                  }}
+                                >
+                                  +
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <p>${Number(item.variant.price).toFixed(2)}</p>
-                    </div>
                   </div>
-                </div>
-              )
-            })}
-
+                )
+              })}
+            </div>
             <div className={styles.ruler}></div>
 
             <div className={styles.quantityContainer}>
@@ -92,8 +92,14 @@ const Cart = ({ style, qty }) => {
               <p className={styles.subtotal}>
                 Subtotal: ${checkout.totalPrice}
               </p>
-              <Link to="/shoppingcart" target="_blank" className={styles.cartLink}>
-                <div className={styles.viewCart}><p className={styles.cartLinkText}>View Cart</p></div>
+              <Link
+                to="/shoppingcart"
+                target="_blank"
+                className={styles.cartLink}
+              >
+                <div className={styles.viewCart}>
+                  <p className={styles.cartLinkText}>View Cart</p>
+                </div>
               </Link>
               <a
                 href={checkout.webUrl}

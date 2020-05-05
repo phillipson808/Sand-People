@@ -54,7 +54,6 @@
 
 .itemContainer {
   margin: 20px;
-  width: 80%;
   position: relative;
 }
 
@@ -82,16 +81,20 @@
 }
 
 .imageContainer {
-  display: flex;
+
   justify-content: space-between;
   margin-top: 15px;
 }
 
-.removeButton {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  color: rgb(70, 70, 70);
+
+
+.productContainer {
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.cartItemContainer {
+  padding-right: 20px;
 }
 
 .cartItemContainer h4 {
@@ -108,11 +111,11 @@
 .table {
   border: 1px solid #f4f4f4;
   border-collapse: collapse;
-  width: 100px;
+  width: 125px;
   height: 30%;
   background: #fff;
-  margin-top: 10px;
 }
+
 
 .qty {
   width: 40%;
@@ -123,6 +126,7 @@
   width: 30%;
   background: #f4f4f4;
   border: none;
+ 
 }
 
 .qtybtn:hover {
@@ -138,6 +142,11 @@
 
 .titleContainer {
   margin-left: 20px;
+}
+
+.titleContainer p {
+  font-size: 13px;
+  padding-bottom: 10px;
 }
 
 .show {
@@ -160,6 +169,12 @@
   font-weight: 600;
   letter-spacing: 1px;
   color: rgb(0, 0, 0);
+}
+
+.itemPrice p {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 #emptyCartContainer {
