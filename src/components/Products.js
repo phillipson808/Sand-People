@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
+import warnIcon from '../img/exclamation-red.svg';
 
 const Products = () => {
   let data = useStaticQuery(graphql`
@@ -37,7 +38,6 @@ const Products = () => {
     }
   `)
   data = data.allShopifyProduct.edges
-
   return (
     <div>
       <div id={styles.Showcase}>
@@ -60,6 +60,7 @@ const Products = () => {
                 <div className={styles.content}>
                   <div>
                     <h4 className={styles.productDesc}>{item.node.title}</h4>
+                    {item.node.availableForSale ? <p></p> : <div className={styles.warningContainer}><img src={warnIcon} className={styles.warnIcon} alt='Warning Icon'></img><p className={styles.soldOut}>Sold Out</p></div>}
                     <p className={styles.productDesc}>
                       $
                       {Number(

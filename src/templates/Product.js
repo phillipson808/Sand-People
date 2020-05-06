@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
+import warnIcon from '../img/exclamation-red.svg'
 
 export const query = graphql`
   query($slug: String!) {
@@ -38,10 +39,8 @@ const Product = props => {
   const [qty, setAddQty] = useState(1);
 
   let variantId = props.data.shopifyProduct.variants[0].shopifyId
-  console.log("Props", props.data.shopifyProduct)
   let imageSrc = props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
   
-
 
 
   return (
@@ -58,6 +57,8 @@ const Product = props => {
               props.data.shopifyProduct.priceRange.maxVariantPrice.amount
             ).toFixed(2)}
           </p>
+          {props.data.shopifyProduct.variants[0].availableForSale ? <p></p> : <div className={styles.warningContainer}><img src={warnIcon} className={styles.warnIcon} alt='Warning Icon'></img><p className={styles.soldOut}>Sold Out</p></div>}
+
           <div className={styles.cartandquantity}>
             <table className={styles.table}>
               <tbody>

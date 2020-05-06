@@ -12,7 +12,7 @@ const locations = () => {
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>Locations</h1>
-          <p>View our locations on Kauai, Maui, and Oahu.</p>
+          <p>Visit our shops on Oahu, Maui, and Kauai.</p>
         </div>
       </div>
       {/*Island Containers*/}

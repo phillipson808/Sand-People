@@ -11,8 +11,7 @@ const Home = () => {
           <div className={styles.title}>
             <h1>E Komo Mai</h1>
             <p>
-              Welcome to Sand People. Coastal lifestyle boutiques for relaxed
-              living.
+              Welcome to Sand People. A Hawaii based company that has been curating gifts and locally made jewelry for over 30 years.
             </p>
             <Link to="/products">
               <button>Shop Now</button>
@@ -23,7 +22,7 @@ const Home = () => {
           <div className={styles.locationsShowcase}>
             <div className={styles.giftsTitle}>
               <h1>Locations</h1>
-              <p>View our locations on Oahu, Kauai, and Maui.</p>
+              <p>Visit our shops on Oahu, Maui, and Kauai.</p>
 
               <Link to="/locations">
                 <button className={styles.showcaseButton}>
@@ -37,8 +36,7 @@ const Home = () => {
             <div className={styles.giftsTitle}>
               <h1>Gifts</h1>
               <p>
-                Find gifts for every occasion with our diverse collection of
-                ocean inspired products.
+                Shop our unique gifts that invoke our island lifestyle.
               </p>
               <Link to="/gifts">
                 <button className={styles.showcaseButton}>Shop Gifts</button>
@@ -49,8 +47,7 @@ const Home = () => {
             <div className={styles.giftsTitle}>
               <h1>Jewelry</h1>
               <p>
-                Find gifts for every occasion with our diverse collection of
-                ocean inspired products.
+                Hand crafted jewelry made in Hawaii with Aloha.
               </p>
               <Link to="/jewelry">
                 <button className={styles.showcaseButton}>Shop Jewelry</button>
@@ -61,8 +58,7 @@ const Home = () => {
             <div className={styles.giftsTitle}>
               <h1>Our Story</h1>
               <p>
-                Find gifts for every occasion with our diverse collection of
-                ocean inspired products.
+                Home grown amongst the taro patches and natural beauty of Hanalei.
               </p>
               <Link to="/products">
                 <button className={styles.showcaseButton}>Learn More</button>

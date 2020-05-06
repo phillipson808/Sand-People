@@ -21,7 +21,14 @@
 .showcaseContent h1 {
   font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
   font-size: 30px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  letter-spacing: 5px;
+}
+
+.showcaseContent p {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  width: 100%;
 }
 
 //Island Div Styles
@@ -123,7 +130,7 @@
 
 .address p {
   font-size: 12px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .phoneContainer img {
@@ -188,7 +195,7 @@
 @media only screen and (max-width: 650px) {
 
   .islandTextContainer {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -209,9 +216,14 @@
     margin: 0 auto;
   }
 
+  .showcaseContent h1 {
+    font-size: 35px;
+  }
+
   .showcaseContent p {
-    width: 65%;
+    width: 100%;
     margin: 0 auto;
+    line-height: 20px;
   }
 
   .showcaseContent {

@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import styles from "../styles/jewelry.module.scss"
+import styles from "../styles/gifts.module.scss"
 import Img from "gatsby-image"
 
 const Jewelry = () => {
@@ -8,7 +8,7 @@ const Jewelry = () => {
     {
       allShopifyCollection(
         sort: { fields: [title] }
-        filter: { handle: { eq: "jewelry" } }
+        filter: { handle: { eq: "gifts" } }
       ) {
         edges {
           node {
@@ -50,8 +50,8 @@ const Jewelry = () => {
     <div>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
-          <h1>Jewelry</h1>
-          <p>Shop our collection of ocean-inspired products.</p>
+          <h1>Gifts</h1>
+          <p>Shop our unique gifts that invoke our island lifestyle.</p>
         </div>
       </div>
       <div className={styles.container}>

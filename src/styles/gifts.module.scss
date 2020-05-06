@@ -1,6 +1,6 @@
 #Showcase {
   height: 375px;
-  background: url("../img/product-display.jpg");
+  background: url("../img/ala-moana.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -93,25 +93,6 @@
   text-align: center;
 }
 
-.soldOut {
-  padding-left: 3px;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 700;
-  color: rgb(206, 23, 23);
-  font-size: 10px;
-}
-
-.warnIcon {
-  color: rgb(206, 23, 23);
-  height: 11px;
-}
-
-.warningContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 @media only screen and (max-width: 1100px) {
   .product-image {

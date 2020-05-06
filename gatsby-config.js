@@ -33,6 +33,7 @@ plugins: [
       path: `${__dirname}/src/img`,
     },
   },
+  
   {
     resolve: `gatsby-plugin-sharp`,
     options: {
@@ -40,6 +41,23 @@ plugins: [
       stripMetadata: true,
       defaultQuality: 75,
     },
+    
   },
+  {
+    resolve: `gatsby-plugin-prefetch-google-fonts`,
+    options: {
+      fonts: [
+        {
+          family: `Source Sans Pro`,
+          variants: [`400`, `700`]
+        },
+        {
+          family: `Josefin Sans`,
+          variants: [`400`, `700`]
+        },
+      ],
+    },
+  }
+  
 ]
 }

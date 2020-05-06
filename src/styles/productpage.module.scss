@@ -56,6 +56,29 @@
   line-height: 25px;
 }
 
+.soldOut {
+  padding-left: 3px;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: rgb(206, 23, 23);
+  font-size: 10px;
+}
+
+.warningContainer p {
+  padding-bottom: 0;
+}
+
+.warnIcon {
+  color: rgb(206, 23, 23);
+  height: 11px;
+}
+
+.warningContainer {
+  display: flex;
+  align-items: center;
+}
+
 //Quantity Styles
 
 .qty {

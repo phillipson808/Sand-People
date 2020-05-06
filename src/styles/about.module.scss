@@ -23,33 +23,100 @@
   font-size: 12px;
   letter-spacing: 2px;
   color: #fff;
+  width: 40%;
 }
+
 
 .title p {
   padding-top: 5px;
   padding-left: 3px;
+  line-height: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .content h3 {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  width: 80%;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0 auto;
-  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: left;
+  line-height: 25px;
 }
 
-.content {
-  width: 90%;
-  margin: 20px auto;
-}
+
 
 .content p {
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 12px;
+  text-align: left;
+  margin: 15px 0px 30px 0px;
+  font-size: 13px;
+  line-height: 30px;
 }
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  overflow: hidden;
+  position: relative;
+}
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .imageContainer {
+    margin: 0 auto;
+    padding: 35px 0px 35px 0px;
+  }
+
+
+  .imageContainer img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+
+  @media only screen and (max-width: 1100px) {
+    .container {
+      width: 90%;
+    }
+  }
+
+
+  @media only screen and (max-width: 750px) {
+    .showcase {
+      text-align: center;
+    }
+
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Source Sans', Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #fff;
+      width: 60%;
+    }
+
+    .title h1 {
+      font-size: 35px;
+    }
+    
+    .content p {
+      line-height: 30px;
+    }
+
+  }
