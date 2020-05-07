@@ -47,63 +47,76 @@ const Product = props => {
         <div className={styles.imageContainer}>
           <img src={imageSrc} alt="Product Image"></img>
         </div>
-        <div className={styles.content}>
-          <h1>{props.data.shopifyProduct.title}</h1>
-          <p>
-            $
-            {Number(
-              props.data.shopifyProduct.priceRange.maxVariantPrice.amount
-            ).toFixed(2)}
-          </p>
-          {props.data.shopifyProduct.variants[0].availableForSale ? (
-            <p></p>
-          ) : (
-            <div className={styles.warningContainer}>
-              <img
-                src={warnIcon}
-                className={styles.warnIcon}
-                alt="Warning Icon"
-              ></img>
-              <p className={styles.soldOut}>Sold Out</p>
+        <div className={styles.contentContainer}>
+          <div className={styles.content}>
+            <h1>{props.data.shopifyProduct.title}</h1>
+            <div className={styles.priceContainer}>
+              <p>
+                $
+                {Number(
+                  props.data.shopifyProduct.priceRange.maxVariantPrice.amount
+                ).toFixed(2)}
+              </p>
+              {props.data.shopifyProduct.variants[0].availableForSale ? (
+                <p></p>
+              ) : (
+                <div className={styles.warningContainer}>
+                  <img
+                    src={warnIcon}
+                    className={styles.warnIcon}
+                    alt="Warning Icon"
+                  ></img>
+                  <p className={styles.soldOut}>Sold Out</p>
+                </div>
+              )}
             </div>
-          )}
 
-          <div className={styles.cartandquantity}>
-            <table className={props.data.shopifyProduct.variants[0].availableForSale ? styles.table : styles.hide}>
-              <tbody>
-                <tr>
-                  <td
-                    className={styles.qtybtn}
-                    onClick={() => {
-                      if (qty > 1) {
-                        setAddQty(qty - 1)
-                      } else {
-                        return
-                      }
-                    }}
-                  >
-                    -
-                  </td>
-                  <td className={styles.qty}>{qty}</td>
-                  <td
-                    className={styles.qtybtn}
-                    onClick={() => {
-                      setAddQty(qty + 1)
-                    }}
-                  >
-                    +
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            {props.data.shopifyProduct.variants[0].availableForSale ? <AddToCart
-              variantId={variantId}
-              qty={qty}
-            /> : <button id={styles.buttonDisabled} disabled>Add to Cart</button>}
+            <div className={styles.cartandquantity}>
+              <table
+                className={
+                  props.data.shopifyProduct.variants[0].availableForSale
+                    ? styles.table
+                    : styles.hide
+                }
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      className={styles.qtybtn}
+                      onClick={() => {
+                        if (qty > 1) {
+                          setAddQty(qty - 1)
+                        } else {
+                          return
+                        }
+                      }}
+                    >
+                      -
+                    </td>
+                    <td className={styles.qty}>{qty}</td>
+                    <td
+                      className={styles.qtybtn}
+                      onClick={() => {
+                        setAddQty(qty + 1)
+                      }}
+                    >
+                      +
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              {props.data.shopifyProduct.variants[0].availableForSale ? (
+                <AddToCart variantId={variantId} qty={qty} />
+              ) : (
+                <button id={styles.buttonDisabled} disabled>
+                  Add to Cart
+                </button>
+              )}
+            </div>
+            <p className={styles.description}>
+              {props.data.shopifyProduct.description}
+            </p>
           </div>
-          <p className={styles.description}>
-            {props.data.shopifyProduct.description}
-          </p>
         </div>
       </div>
     </Layout>

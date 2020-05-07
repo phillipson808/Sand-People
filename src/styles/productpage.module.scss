@@ -1,32 +1,37 @@
 .productContainer {
   display: flex;
-  justify-content: center;
-  width: 70%;
+  justify-content: space-between;
+  width: 65%;
   margin: 0 auto;
 }
 
-.content {
-  margin-left: 30px;
-  padding: 50px;
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  max-width: 350px;
+  min-width: 340px;
 }
-.content h1{
- font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
- font-weight: 500;
- text-transform: uppercase;
- font-size: 25px;
- letter-spacing: 3px;
- padding-bottom: 10px;
+
+.content h1 {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 3px;
+  padding-bottom: 10px;
 }
 
 .content p {
   padding-bottom: 10px;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 }
 
 .content button {
   background: none;
   border: 1px solid #000;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   width: 150px;
   height: 40px;
 }
@@ -49,16 +54,15 @@
   color: #fff;
 }
 
-
 .description {
   font-size: 12px;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   line-height: 25px;
 }
 
 .soldOut {
   padding-left: 3px;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
   color: rgb(206, 23, 23);
@@ -136,20 +140,26 @@
   display: none;
 }
 
+.priceContainer {
+  display: flex;
+  align-items: center;
+}
+
+.priceContainer p {
+  padding-right: 10px;
+  padding-bottom: 0;
+}
 
 //Media Queries
 
-@media only screen and (max-width: 1100px){
+@media only screen and (max-width: 1100px) {
   .productContainer {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     justify-content: center;
-
   }
 
-  .productContainer img {
-    text-align: left;
-  }
+
 
   .productContainer h1 {
     text-align: left;
@@ -162,24 +172,25 @@
   .cartandquantity {
     justify-content: left;
   }
-
-
 }
 
-@media only screen and (max-width: 1000px) {
-.productContainer {
-  width: 100%;
-  display: block;
-  text-align: center;
-}
+@media only screen and (max-width: 780px) {
+  .contentContainer {
+    padding-left: 0;
+    max-width: 100%;
+  }
+  .productContainer {
+    width: 90%;
+    display: block;
+  }
 
+  .imageContainer {
+    width: 90%;
+    margin-bottom: 10px;
+  }
 
-.content {
-  text-align: left;
-  width: 90%;
-}
-
-
-
-
+  .content {
+    text-align: left;
+    width: 90%;
+  }
 }
