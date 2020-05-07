@@ -60,7 +60,7 @@ const Home = () => {
               <p>
                 Home grown amongst the taro patches and natural beauty of Hanalei.
               </p>
-              <Link to="/products">
+              <Link to="/about">
                 <button className={styles.showcaseButton}>Learn More</button>
               </Link>
             </div>

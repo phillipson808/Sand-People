@@ -5,7 +5,6 @@ import { animated } from "react-spring"
 import styles from "../styles/cart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
-import AddToCart from "../components/AddToCart"
 
 
 const Cart = ({ style, qty }) => {

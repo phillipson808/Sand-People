@@ -32,11 +32,14 @@ export const StoreProvider = ({ children }) => {
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
   const [qty, setAddQty] = useState(1);
+  
   //setCheckout is like the setState function in React Hooks.
 
   const toggleCartOpen = () => {
     setCartOpen(!isCartOpen)
   }
+
+
 
   useEffect(() => {
     initializeCheckout()

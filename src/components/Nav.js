@@ -66,19 +66,19 @@ const Nav = () => {
             </div>
           </div>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={toggleDisplay}>Home</Link>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <Link to="/products" onClick={toggleDisplay}>Products</Link>
           </li>
           <li>
-            <Link to="/locations">Locations</Link>
+            <Link to="/locations" onClick={toggleDisplay}>Locations</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about" onClick={toggleDisplay}>About</Link>
           </li>
           <li>
-            <Link to="/shoppingcart">Cart</Link>
+            <Link to="/shoppingcart" onClick={toggleDisplay}>Cart</Link>
           </li>
         </ul>
       </nav>
