@@ -66,19 +66,29 @@ const Nav = () => {
             </div>
           </div>
           <li>
-            <Link to="/" onClick={toggleDisplay}>Home</Link>
+            <Link to="/" onClick={toggleDisplay}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/products" onClick={toggleDisplay}>Products</Link>
+            <Link to="/products" onClick={toggleDisplay}>
+              Products
+            </Link>
           </li>
           <li>
-            <Link to="/locations" onClick={toggleDisplay}>Locations</Link>
+            <Link to="/locations" onClick={toggleDisplay}>
+              Locations
+            </Link>
           </li>
           <li>
-            <Link to="/about" onClick={toggleDisplay}>About</Link>
+            <Link to="/about" onClick={toggleDisplay}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/shoppingcart" onClick={toggleDisplay}>Cart</Link>
+            <Link to="/shoppingcart" onClick={toggleDisplay}>
+              Cart
+            </Link>
           </li>
         </ul>
       </nav>
@@ -93,8 +103,16 @@ const Nav = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <div className={styles.dropdownContainer}>
+                <Link to="/products" id={styles.productsLink}>Products</Link>
+                <div id={styles.dropdown}>
+                  <Link to="/products">All</Link>
+                  <Link to="/products">Gifts</Link>
+                  <Link to="/products">Jewelry</Link>
+                </div>
+              </div>
             </li>
+
             <li>
               <Link to="/locations">Locations</Link>
             </li>
