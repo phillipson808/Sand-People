@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
-import warnIcon from '../img/exclamation-red.svg';
+import warnIcon from "../img/exclamation-red.svg"
 
 const Products = () => {
   let data = useStaticQuery(graphql`
@@ -51,16 +51,35 @@ const Products = () => {
           {data.map(item => {
             return (
               <div className={styles.productImage} key={item.node.shopifyId}>
-                <Link to={`/products/${item.node.handle}`}>
-                  <Img
-                    className={styles.gridImage}
-                    fluid={item.node.images[0].localFile.childImageSharp.fluid}
-                  ></Img>
-                </Link>
+                <div>
+                  <Link to={`/products/${item.node.handle}`}>
+                    <div className={styles.gridImageContainer}>
+                      <Img
+                        className={styles.gridImage}
+                        fluid={
+                          item.node.images[0].localFile.childImageSharp.fluid
+                        }
+                      ></Img>
+                    </div>
+                  </Link>
+                </div>
                 <div className={styles.content}>
                   <div>
-                    <h4 className={styles.productDesc}>{item.node.title}</h4>
-                    {item.node.availableForSale ? <p></p> : <div className={styles.warningContainer}><img src={warnIcon} className={styles.warnIcon} alt='Warning Icon'></img><p className={styles.soldOut}>Sold Out</p></div>}
+                    <div className={styles.titleContainer}>
+                      <h4 className={styles.productDesc}>{item.node.title}</h4>
+                      {item.node.availableForSale ? (
+                        <p></p>
+                      ) : (
+                        <div className={styles.warningContainer}>
+                          <img
+                            src={warnIcon}
+                            className={styles.warnIcon}
+                            alt="Warning Icon"
+                          ></img>
+                          <p className={styles.soldOut}>Sold Out</p>
+                        </div>
+                      )}
+                    </div>
                     <p className={styles.productDesc}>
                       $
                       {Number(

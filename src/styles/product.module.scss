@@ -32,6 +32,14 @@
 
 .product-image {
   width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleContainer {
+  display: flex;
 }
 
 
@@ -46,6 +54,9 @@
 .grid-image {
   margin: 20px;
   display: relative;
+  height: 330px;
+  width: 330px;
+
 }
 
 .grid-image:hover {
@@ -113,15 +124,31 @@
   justify-content: center;
 }
 
+
 @media only screen and (max-width: 1100px) {
   .product-image {
     width: 50%;
   }
+  .grid-image {
+    margin: 20px;
+    display: relative;
+    height: 300px;
+    width: 300px;
+  
+  }
 }
+
 
 @media only screen and (max-width: 750px) {
   .product-image {
     width: 100%;
+  }
+
+  .grid-image {
+    margin: 20px;
+    display: relative;
+    height: 400px;
+    width: 400px;
   }
 }
 
