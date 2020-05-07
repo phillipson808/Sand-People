@@ -59,7 +59,6 @@ export const StoreProvider = ({ children }) => {
 
   //See if cart is empty. Fill this in later.
   const checkIfCartEmpty = async (checkout) => {
-    console.log('RUNNING', isCartEmpty)
     try {
       if(checkout.lineItems.length !== 0) {
         setCartEmpty(false)
@@ -76,7 +75,6 @@ export const StoreProvider = ({ children }) => {
     try {
       console.log('fired')
       setShowDisplay(!showDisplay)
-      console.log(showDisplay)
     } catch (e) {
       console.error(e)
     }
@@ -155,7 +153,6 @@ export const StoreProvider = ({ children }) => {
   const addtoQty = async(productQty) => {
 
     try{
-      {console.log('HIT ADD TO QTY')}
       setAddQty(productQty + qty)
  
     } catch(e) {

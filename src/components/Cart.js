@@ -5,6 +5,8 @@ import { animated } from "react-spring"
 import styles from "../styles/cart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
+import AddToCart from "../components/AddToCart"
+
 
 const Cart = ({ style, qty }) => {
   //Style is the prop that is being passed in to create animation.
@@ -14,6 +16,8 @@ const Cart = ({ style, qty }) => {
   )
 
   const [cartEmpty, setCartEmpty] = useState(true)
+
+  
 
   useEffect(() => {
     if (checkout.lineItems.length !== 0) {
@@ -70,8 +74,9 @@ const Cart = ({ style, qty }) => {
                                 <td
                                   className={styles.qtybtn}
                                   onClick={() => {
-                                    addProductToCart(item.variant.id)
+                                    addProductToCart(item.variant.id, 1)
                                   }}
+                      
                                 >
                                   +
                                 </td>

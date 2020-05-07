@@ -5,15 +5,17 @@ import styles from "../styles/shoppingcart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
 import Layout from "../components/Layout"
+import AddoCart from '../components/AddToCart';
 
 const ShoppingCart = () => {
   //Style is the prop that is being passed in to create animation.
   //Shopify test card #: 4242424242424242
-  const { checkout, addProductToCart, removeQuantityFromCart } = useContext(
+  const { checkout, addProductToCart, removeQuantityFromCart, } = useContext(
     StoreContext
   )
 
   const [cartEmpty, setCartEmpty] = useState(true)
+  const [qty, setQty] = useState(1)
 
   useEffect(() => {
     if (checkout.lineItems.length !== 0) {
@@ -22,26 +24,6 @@ const ShoppingCart = () => {
       setCartEmpty(true)
     }
   })
-
-  let qty
-
-  if (checkout) {
-    qty = checkout.lineItems.reduce((total, item) => {
-      return total + item.quantity
-    }, 0)
-  } else {
-    qty = 0
-  }
-
-  const getQty = () => {
-    qty = checkout.lineItems.reduce((total, item) => {
-      return total + item.quantity
-    }, 0)
-  }
-
-  useEffect(() => {
-    getQty()
-  }, [])
 
   return (
     <Layout>
@@ -75,6 +57,7 @@ const ShoppingCart = () => {
                                       item.id,
                                       item.quantity - 1
                                     )
+                                    setQty(qty - 1);
                                   }}
                                 >
                                   -
@@ -83,7 +66,8 @@ const ShoppingCart = () => {
                                 <td
                                   className={styles.qtybtn}
                                   onClick={() => {
-                                    addProductToCart(item.variant.id)
+                                    addProductToCart(item.variant.id, 1)
+                                    setQty(qty + 1);
                                   }}
                                 >
                                   +

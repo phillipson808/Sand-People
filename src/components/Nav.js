@@ -37,12 +37,10 @@ const Nav = () => {
     }, 0)
   }
 
-  console.log(showDisplay, "DISPLAY")
-
   useEffect(() => {
     getQty()
-    if(isCartOpen === true) {
-      toggleCartOpen();
+    if (isCartOpen === true) {
+      toggleCartOpen()
     }
   }, [])
 
@@ -63,9 +61,9 @@ const Nav = () => {
           id={showDisplay ? styles.show : styles.hide}
         >
           <div className={styles.closeContainer} onClick={toggleDisplay}>
-            <p className={styles.close}>
-              X
-            </p> 
+            <div className={styles.close}>
+              <p>X</p>
+            </div>
           </div>
           <li>
             <Link to="/">Home</Link>
@@ -80,7 +78,7 @@ const Nav = () => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/products">Cart</Link>
+            <Link to="/shoppingcart">Cart</Link>
           </li>
         </ul>
       </nav>
