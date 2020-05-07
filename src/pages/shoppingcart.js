@@ -5,7 +5,7 @@ import styles from "../styles/shoppingcart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
 import Layout from "../components/Layout"
-import AddoCart from '../components/AddToCart';
+import Cart from '../components/Cart';
 
 const ShoppingCart = () => {
   //Style is the prop that is being passed in to create animation.
@@ -15,7 +15,22 @@ const ShoppingCart = () => {
   )
 
   const [cartEmpty, setCartEmpty] = useState(true)
-  const [qty, setQty] = useState(1)
+
+  let qty
+
+  if (checkout) {
+    qty = checkout.lineItems.reduce((total, item) => {
+      return total + item.quantity
+    }, 0)
+  } else {
+    qty = 0
+  }
+
+  const getQty = () => {
+    qty = checkout.lineItems.reduce((total, item) => {
+      return total + item.quantity
+    }, 0)
+  }
 
   useEffect(() => {
     if (checkout.lineItems.length !== 0) {
@@ -35,7 +50,6 @@ const ShoppingCart = () => {
             </div>
             <div className={cartEmpty ? styles.hide : styles.show}>
               {checkout.lineItems.map(item => {
-                console.log(checkout.lineItems)
                 return (
                   <div key={item.id} className={styles.cartItemContainer}>
                     <div className={styles.imageContainer}>
@@ -57,7 +71,7 @@ const ShoppingCart = () => {
                                       item.id,
                                       item.quantity - 1
                                     )
-                                    setQty(qty - 1);
+                                    
                                   }}
                                 >
                                   -
@@ -67,7 +81,7 @@ const ShoppingCart = () => {
                                   className={styles.qtybtn}
                                   onClick={() => {
                                     addProductToCart(item.variant.id, 1)
-                                    setQty(qty + 1);
+                          
                                   }}
                                 >
                                   +
