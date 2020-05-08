@@ -44,6 +44,23 @@
   width: 400px;
 }
 
+.variantContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  height: 200px;
+}
+
+.variantImageContainer img {
+  width: 198px;
+  height: 198px;
+}
+
+.variantImageContainer:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 .content button {
   transition: 0.5s all ease-in-out;
 }
@@ -158,8 +175,6 @@
     margin: 0 auto;
     justify-content: center;
   }
-
-
 
   .productContainer h1 {
     text-align: left;

@@ -46,9 +46,14 @@ export const query = graphql`
 const Product = props => {
   const [qty, setAddQty] = useState(1)
 
-  let variantArray = props.data.shopifyProduct.variants.map(variant => {
-    return [variant.id, variant.image.localFile["childImageSharp"].fluid.src]
+  
+  let variantArray = props.data.shopifyProduct.variants.map((variant, i) =>  {
+    return (
+      [variant.id, variant.image.localFile["childImageSharp"].fluid.src]
+    )
   })
+
+
 
   let variantId = props.data.shopifyProduct.variants[0].shopifyId
   let imageSrc =
@@ -56,21 +61,10 @@ const Product = props => {
 
   return (
     <Layout>
-      {console.log("NEW VARIANT ARRAY", variantArray)}
+      {console.log('VARIANT IDs', variantArray)}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
-          <div>
-            <img src={imageSrc} alt="Product Image"></img>
-          </div>
-          <div className={styles.variantContainer}>
-            {variantArray.map(variant => {
-              return (
-                <div key={variant.id} className={styles.variantImageContainer}>
-                  <img src={variant[1]} alt="" />
-                </div>
-              )
-            })}
-          </div>
+          <img src={imageSrc} alt="Product Image"></img>
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.content}>
@@ -142,6 +136,9 @@ const Product = props => {
               {props.data.shopifyProduct.description}
             </p>
           </div>
+          {props.data.shopifyProduct.variants.map((variant) => (
+            <div><img src={variant.image.localFile["childImageSharp"].fluid.src} key={variant.id}></img></div>
+          ))}
         </div>
       </div>
     </Layout>
