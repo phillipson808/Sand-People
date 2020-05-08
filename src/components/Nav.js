@@ -6,6 +6,7 @@ import { useTransition } from "react-spring"
 import styles from "../styles/nav.module.scss"
 import logo from "../img/sp-logo.svg"
 import cartImage from "../img/SP-cart-icon.svg"
+import arrow from '../img/arrow-down.svg';
 
 const Nav = () => {
   const {
@@ -104,7 +105,7 @@ const Nav = () => {
             </li>
             <li>
               <div className={styles.dropdownContainer}>
-                <Link to="/products" id={styles.productsLink}>Products</Link>
+                <Link to="/products" id={styles.productsLink}><span>Products</span><img src={arrow} alt='' className={styles.arrowIcon}></img></Link>
                 <div id={styles.dropdown}>
                   <Link to="/products">All</Link>
                   <Link to="/products">Gifts</Link>
