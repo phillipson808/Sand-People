@@ -5,7 +5,6 @@ import styles from "../styles/shoppingcart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
 import Layout from "../components/Layout"
-import Cart from '../components/Cart';
 
 const ShoppingCart = () => {
   //Style is the prop that is being passed in to create animation.
@@ -61,6 +60,7 @@ const ShoppingCart = () => {
                         ></img>
                         <div className={styles.titleContainer}>
                           <p>{item.title}</p>
+                          <p className={styles.variantTitle}>{item.variant.title}</p>
                           <table className={styles.table}>
                             <tbody>
                               <tr>
