@@ -17,6 +17,7 @@ const defaultValues = {
     lineItems: [],
   },
   qty: 1,
+  imageSrc: ''
 }
 
 
@@ -32,6 +33,7 @@ export const StoreProvider = ({ children }) => {
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
   const [qty, setAddQty] = useState(1);
+  const [imageSrc, setImageSrc] = useState('');
   
   //setCheckout is like the setState function in React Hooks.
 
@@ -177,7 +179,8 @@ export const StoreProvider = ({ children }) => {
         checkIfCartEmpty,
         toggleDisplay,
         showDisplay,
-        addtoQty
+        addtoQty,
+        setImageSrc
       }}
     >
       {children}

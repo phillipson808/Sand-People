@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
@@ -19,6 +19,8 @@ export const query = graphql`
         }
       }
       title
+      availableForSale
+      shopifyId
       priceRange {
         maxVariantPrice {
           amount
@@ -36,6 +38,7 @@ export const query = graphql`
             }
           }
         }
+        title
       }
       productType
       description
@@ -43,16 +46,27 @@ export const query = graphql`
   }
 `
 
+
+
 const Product = props => {
   const [qty, setAddQty] = useState(1)
+  const [imageSrc, setImageSrc] = useState('')
 
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
-    return [variant.id, variant.image.localFile["childImageSharp"].fluid.src]
+    return [variant.id, variant.image.localFile["childImageSharp"].fluid.src, variant.title, variant.availableForSale]
   })
 
-  let variantId = props.data.shopifyProduct.variants[0].shopifyId
-  let imageSrc =
+  let variantId = props.data.shopifyProduct.shopifyId
+  let image =
     props.data.shopifyProduct.images[0].localFile["childImageSharp"].fluid.src
+
+
+    useEffect(() => {
+      setImageSrc(image)
+    }, [])
+
+
+
 
   return (
     <Layout>
@@ -61,15 +75,6 @@ const Product = props => {
         <div className={styles.imageContainer}>
           <div>
             <img src={imageSrc} alt="Product Image"></img>
-          </div>
-          <div className={styles.variantContainer}>
-            {variantArray.map(variant => {
-              return (
-                <div key={variant.id} className={styles.variantImageContainer}>
-                  <img src={variant[1]} alt="" />
-                </div>
-              )
-            })}
           </div>
         </div>
         <div className={styles.contentContainer}>
@@ -82,7 +87,7 @@ const Product = props => {
                   props.data.shopifyProduct.priceRange.maxVariantPrice.amount
                 ).toFixed(2)}
               </p>
-              {props.data.shopifyProduct.variants[0].availableForSale ? (
+              {props.data.shopifyProduct.availableForSale ? (
                 <p></p>
               ) : (
                 <div className={styles.warningContainer}>
@@ -99,7 +104,7 @@ const Product = props => {
             <div className={styles.cartandquantity}>
               <table
                 className={
-                  props.data.shopifyProduct.variants[0].availableForSale
+                  props.data.shopifyProduct.availableForSale
                     ? styles.table
                     : styles.hide
                 }
@@ -130,7 +135,7 @@ const Product = props => {
                   </tr>
                 </tbody>
               </table>
-              {props.data.shopifyProduct.variants[0].availableForSale ? (
+              {props.data.shopifyProduct.availableForSale ? (
                 <AddToCart variantId={variantId} qty={qty} />
               ) : (
                 <button id={styles.buttonDisabled} disabled>
@@ -138,6 +143,18 @@ const Product = props => {
                 </button>
               )}
             </div>
+            <div className={styles.variantContainer}>
+            {variantArray.map(variant => {
+              if(variantArray.length > 1) {
+              return (
+                <div key={variant[0]}>
+                  <button onClick={() => {setImageSrc(variant[1])}}>X</button><p>{variant[2]}</p>
+                </div>
+              )
+            }
+          
+          })}
+          </div>
             <p className={styles.description}>
               {props.data.shopifyProduct.description}
             </p>
