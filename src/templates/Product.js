@@ -55,17 +55,18 @@ const Product = props => {
 
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
     return [
-      variant.id,
+      variant.shopifyId,
       variant.image.localFile["childImageSharp"].fluid.src,
       variant.title,
       variant.availableForSale,
-      variant.price
+      variant.price,
+      variant.id
     ]
   })
 
-  let initialId = variantArray[0].id
+  let initialId = variantArray[0].shopifyId
 
-  let currentVariantId = variantArray[0].id
+  let currentVariantId = variantArray[0].shopifyId
 
   let initialImage =
     variantArray[0][1]
