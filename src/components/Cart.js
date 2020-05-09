@@ -41,6 +41,7 @@ const Cart = ({ style, qty }) => {
           <div className={cartEmpty ? styles.hide : styles.show}>
             <div className={styles.productContainer}>
               {checkout.lineItems.map(item => {
+                {console.log(item, 'ITEM')}
                 return (
                   <div key={item.id} className={styles.cartItemContainer}>
                     <div className={styles.imageContainer}>

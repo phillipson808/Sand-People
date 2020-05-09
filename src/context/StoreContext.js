@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react"
 import Client from "shopify-buy"
-  //Shopify test card #: 4242424242424242
+//Shopify test card #: 4242424242424242
 const client = Client.buildClient({
   domain: "sandpeople.myshopify.com",
   storefrontAccessToken: "36a908b298bc3054a3b965f3030af92e",
@@ -10,6 +10,7 @@ const defaultValues = {
   isCartOpen: false,
   isCartEmpty: true,
   showDisplay: false,
+  isAvailable: true,
   cart: [],
   addProductToCart: () => {},
   client: client,
@@ -17,11 +18,10 @@ const defaultValues = {
     lineItems: [],
   },
   qty: 1,
-  imageSrc: ''
+  imageSrc: "",
+  variantId: "",
+  price: ''
 }
-
-
-
 
 export const StoreContext = createContext(defaultValues)
 //Check if it's a browser
@@ -32,23 +32,21 @@ export const StoreProvider = ({ children }) => {
   const [isCartOpen, setCartOpen] = useState(false)
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
-  const [qty, setAddQty] = useState(1);
-  const [imageSrc, setImageSrc] = useState('');
-  
+  const [qty, setAddQty] = useState(1)
+  const [imageSrc, setImageSrc] = useState("")
+  const [variantId, setVariantId] = useState("")
+  const [price, setPrice] = useState('')
+  const [isAvailable, setIsAvailable] = useState(true)
+
   //setCheckout is like the setState function in React Hooks.
 
   const toggleCartOpen = () => {
     setCartOpen(!isCartOpen)
   }
 
-
-
   useEffect(() => {
     initializeCheckout()
   }, []) //If you leave second argument as blank array it acts like componentdidmount
-
-  
-
 
   //Get new checkout (useful for after a customer completes payment for an order to reset cart.)
   const getNewId = async () => {
@@ -63,29 +61,26 @@ export const StoreProvider = ({ children }) => {
   }
 
   //See if cart is empty. Fill this in later.
-  const checkIfCartEmpty = async (checkout) => {
+  const checkIfCartEmpty = async checkout => {
     try {
-      if(checkout.lineItems.length !== 0) {
+      if (checkout.lineItems.length !== 0) {
         setCartEmpty(false)
       } else {
         setCartEmpty(true)
       }
-
-    }catch(e) {
-      console.error(e);
-    }
-  }
-
-  const toggleDisplay = async () => {
-    try {
-      console.log('fired')
-      setShowDisplay(!showDisplay)
     } catch (e) {
       console.error(e)
     }
   }
 
-
+  const toggleDisplay = async () => {
+    try {
+      console.log("fired")
+      setShowDisplay(!showDisplay)
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   const initializeCheckout = async () => {
     try {
@@ -123,12 +118,10 @@ export const StoreProvider = ({ children }) => {
         lineItems
       )
       setCheckout(newCheckout)
-
     } catch (e) {
       console.error(e)
     }
   }
-
   const deleteProductFromCart = async variantId => {
     try {
       const lineItemsToRemove = [variantId]
@@ -142,9 +135,9 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const removeQuantityFromCart = async (variantId, quantity)=> {
+  const removeQuantityFromCart = async (variantId, quantity) => {
     try {
-      const lineItemsToUpdate = [{id: variantId, quantity: quantity}]
+      const lineItemsToUpdate = [{ id: variantId, quantity: quantity }]
       const newCheckout = await client.checkout.updateLineItems(
         checkout.id,
         lineItemsToUpdate
@@ -155,15 +148,12 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
-  const addtoQty = async(productQty) => {
-
-    try{
+  const addtoQty = async productQty => {
+    try {
       setAddQty(productQty + qty)
- 
-    } catch(e) {
-      console.log(e);
+    } catch (e) {
+      console.log(e)
     }
-   
   }
 
   return (
@@ -180,7 +170,9 @@ export const StoreProvider = ({ children }) => {
         toggleDisplay,
         showDisplay,
         addtoQty,
-        setImageSrc
+        setImageSrc,
+        setVariantId,
+        setIsAvailable
       }}
     >
       {children}
