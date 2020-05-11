@@ -6,7 +6,7 @@ import { useTransition } from "react-spring"
 import styles from "../styles/nav.module.scss"
 import logo from "../img/sp-logo.svg"
 import cartImage from "../img/SP-cart-icon.svg"
-import arrow from '../img/arrow-down.svg';
+import arrow from "../img/arrow-down.svg"
 
 const Nav = () => {
   const {
@@ -57,41 +57,56 @@ const Nav = () => {
           <div className={styles.line}></div>
         </div>
 
-        <ul
-          className={styles.mobileLinks}
-          id={showDisplay ? styles.show : styles.hide}
-        >
-          <div className={styles.closeContainer} onClick={toggleDisplay}>
-            <div className={styles.close}>
-              <p>X</p>
+          <ul
+            className={styles.mobileLinks}
+            id={showDisplay ? styles.show : styles.hide}
+          >
+            <div className={styles.closeContainer} onClick={toggleDisplay}>
+              <div className={styles.close}>
+                <p>X</p>
+              </div>
             </div>
-          </div>
-          <li>
-            <Link to="/" onClick={toggleDisplay}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" onClick={toggleDisplay}>
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link to="/locations" onClick={toggleDisplay}>
-              Locations
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" onClick={toggleDisplay}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/shoppingcart" onClick={toggleDisplay}>
-              Cart
-            </Link>
-          </li>
-        </ul>
+            <li>
+              <Link to="/" onClick={toggleDisplay}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/products" onClick={toggleDisplay}>
+                All Products
+              </Link>
+            </li>
+            <li>
+              <Link to="/gifts" onClick={toggleDisplay}>
+                Gifts
+              </Link>
+            </li>
+            <li>
+              <Link to="/jewelry" onClick={toggleDisplay}>
+                Jewelry
+              </Link>
+            </li>
+            <li>
+              <Link to="/kids" onClick={toggleDisplay}>
+                Kids
+              </Link>
+            </li>
+            <li>
+              <Link to="/locations" onClick={toggleDisplay}>
+                Locations
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={toggleDisplay}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/shoppingcart" onClick={toggleDisplay}>
+                Cart
+              </Link>
+            </li>
+          </ul>
       </nav>
 
       <div id={styles.NavContainer}>
@@ -105,7 +120,10 @@ const Nav = () => {
             </li>
             <li>
               <div className={styles.dropdownContainer}>
-                <Link to="/products" id={styles.productsLink}><span>Products</span><img src={arrow} alt='' className={styles.arrowIcon}></img></Link>
+                <Link to="/products" id={styles.productsLink}>
+                  <span>Products</span>
+                  <img src={arrow} alt="" className={styles.arrowIcon}></img>
+                </Link>
                 <div id={styles.dropdown}>
                   <Link to="/products">All</Link>
                   <Link to="/gifts">Gifts</Link>

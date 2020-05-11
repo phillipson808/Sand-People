@@ -124,6 +124,35 @@
   justify-content: center;
 }
 
+.menuContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+  width: 90%;
+  margin: 20px auto 0px auto;
+  letter-spacing: 2px;
+}
+
+.menuContainer h1 {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.menuContainer a {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin-left: 50px;
+  color: #000;
+}
+
+.menuContainer a:hover {
+  font-weight: 800;
+}
+
+
+
+
 
 @media only screen and (max-width: 1100px) {
   .product-image {

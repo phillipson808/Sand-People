@@ -64,12 +64,8 @@ const Product = props => {
     ]
   })
 
-  let initialId = variantArray[0].shopifyId
 
   let currentVariantId = variantArray[0].shopifyId
-
-  let initialImage =
-    variantArray[0][1]
 
   let image =
     variantArray[0][1]
@@ -90,7 +86,6 @@ const Product = props => {
 
   return (
     <Layout>
-      {console.log("NEW VARIANT ARRAY", variantArray)}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <div>

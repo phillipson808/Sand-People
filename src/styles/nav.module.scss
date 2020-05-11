@@ -125,7 +125,7 @@
 .links li a {
   text-decoration: none;
   color: #1b1b1b;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
   font-size: 12px;
   letter-spacing: 3px;
 }
@@ -189,19 +189,21 @@
   transform: rotate(90deg);
 }
 
+
+
 .mobileLinks {
   display: flex;
   position: fixed;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   top: 0;
   right: 0;
   height: 100vh;
   flex-direction: column;
+  flex-wrap: wrap;
   background: rgba(0,0,0,0.5);
   z-index: 2;
-  width: 50%;
+  width: 60vw;
   transition: all 1s;
 }
 
