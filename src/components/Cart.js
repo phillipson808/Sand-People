@@ -6,7 +6,6 @@ import styles from "../styles/cart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
 
-
 const Cart = ({ style, qty }) => {
   //Style is the prop that is being passed in to create animation.
   //Shopify test card #: 4242424242424242
@@ -15,8 +14,6 @@ const Cart = ({ style, qty }) => {
   )
 
   const [cartEmpty, setCartEmpty] = useState(true)
-
-  
 
   useEffect(() => {
     if (checkout.lineItems.length !== 0) {
@@ -41,16 +38,20 @@ const Cart = ({ style, qty }) => {
           <div className={cartEmpty ? styles.hide : styles.show}>
             <div className={styles.productContainer}>
               {checkout.lineItems.map(item => {
-                {console.log(item, 'ITEM')}
+                {
+                  console.log(item, "ITEM")
+                }
                 return (
                   <div key={item.id} className={styles.cartItemContainer}>
                     <div className={styles.imageContainer}>
                       <div className={styles.imageTitle}>
-                        <img
-                          src={item.variant.image.src}
-                          alt="Product Image"
-                          className={styles.productImage}
-                        ></img>
+                        <div className={styles.thumbnail}>
+                          <img
+                            src={item.variant.image.src}
+                            alt="Product Image"
+                            className={styles.productImage}
+                          ></img>
+                        </div>
                         <div className={styles.titleContainer}>
                           <p>{item.title}</p>
                           <div className={styles.itemPrice}>
@@ -76,7 +77,6 @@ const Cart = ({ style, qty }) => {
                                   onClick={() => {
                                     addProductToCart(item.variant.id, 1)
                                   }}
-                      
                                 >
                                   +
                                 </td>

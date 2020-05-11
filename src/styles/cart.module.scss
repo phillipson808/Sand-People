@@ -83,11 +83,15 @@
 }
 
 .imageContainer {
-
   justify-content: space-between;
   margin-top: 15px;
 }
 
+.thumbnail {
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+}
 
 
 .productContainer {

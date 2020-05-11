@@ -108,8 +108,8 @@ const Nav = () => {
                 <Link to="/products" id={styles.productsLink}><span>Products</span><img src={arrow} alt='' className={styles.arrowIcon}></img></Link>
                 <div id={styles.dropdown}>
                   <Link to="/products">All</Link>
-                  <Link to="/products">Gifts</Link>
-                  <Link to="/products">Jewelry</Link>
+                  <Link to="/gifts">Gifts</Link>
+                  <Link to="/jewelry">Jewelry</Link>
                 </div>
               </div>
             </li>

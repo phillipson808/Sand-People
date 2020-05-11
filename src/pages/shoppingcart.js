@@ -9,7 +9,7 @@ import Layout from "../components/Layout"
 const ShoppingCart = () => {
   //Style is the prop that is being passed in to create animation.
   //Shopify test card #: 4242424242424242
-  const { checkout, addProductToCart, removeQuantityFromCart, } = useContext(
+  const { checkout, addProductToCart, removeQuantityFromCart } = useContext(
     StoreContext
   )
 
@@ -53,14 +53,18 @@ const ShoppingCart = () => {
                   <div key={item.id} className={styles.cartItemContainer}>
                     <div className={styles.imageContainer}>
                       <div className={styles.imageTitle}>
-                        <img
-                          src={item.variant.image.src}
-                          alt="Product Image"
-                          className={styles.productImage}
-                        ></img>
+                        <div className={styles.thumbnail}>
+                          <img
+                            src={item.variant.image.src}
+                            alt="Product Image"
+                            className={styles.productImage}
+                          ></img>
+                        </div>
                         <div className={styles.titleContainer}>
                           <p>{item.title}</p>
-                          <p className={styles.variantTitle}>{item.variant.title}</p>
+                          <p className={styles.variantTitle}>
+                            {item.variant.title}
+                          </p>
                           <table className={styles.table}>
                             <tbody>
                               <tr>
@@ -71,7 +75,6 @@ const ShoppingCart = () => {
                                       item.id,
                                       item.quantity - 1
                                     )
-                                    
                                   }}
                                 >
                                   -
@@ -81,7 +84,6 @@ const ShoppingCart = () => {
                                   className={styles.qtybtn}
                                   onClick={() => {
                                     addProductToCart(item.variant.id, 1)
-                          
                                   }}
                                 >
                                   +
@@ -107,7 +109,9 @@ const ShoppingCart = () => {
                   Subtotal: ${checkout.totalPrice}
                 </p>
                 <Link to="/products" target="_blank">
-                  <div className={styles.keepShoppingbtn}><p className={styles.keepShoppingText}>Keep Shopping</p></div>
+                  <div className={styles.keepShoppingbtn}>
+                    <p className={styles.keepShoppingText}>Keep Shopping</p>
+                  </div>
                 </Link>
                 <a
                   href={checkout.webUrl}

@@ -77,8 +77,15 @@
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  overflow: hidden;
+  height: 120px;
 }
 
+.thumbnail {
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+}
 .removeButton {
   background: none;
   border: none;
