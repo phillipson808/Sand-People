@@ -20,7 +20,7 @@ const defaultValues = {
   qty: 1,
   imageSrc: "",
   variantId: "",
-  price: ''
+  price: '',
 }
 
 export const StoreContext = createContext(defaultValues)

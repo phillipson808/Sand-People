@@ -60,15 +60,13 @@ const Product = props => {
       variant.title,
       variant.availableForSale,
       variant.price,
-      variant.id
+      variant.id,
     ]
   })
 
-
   let currentVariantId = variantArray[0].shopifyId
 
-  let image =
-    variantArray[0][1]
+  let image = variantArray[0][1]
 
   let initialAvailability = props.data.shopifyProduct.isAvailable
 
@@ -158,13 +156,17 @@ const Product = props => {
                 </button>
               )}
             </div>
+            <div className={styles.variantHeader}>
+              <h3>Variants</h3>
+            </div>
             <div className={styles.variantContainer}>
-              <div>
+              <div className={styles.variantButtonContainer}>
                 {variantArray.map(variant => {
                   if (variantArray.length > 1) {
                     return (
                       <div key={variant[0]}>
                         <button
+                          id={styles.variantButton}
                           onClick={() => {
                             updateItem(variant[1], variant[0], variant[3])
                           }}
