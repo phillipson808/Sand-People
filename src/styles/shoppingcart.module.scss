@@ -140,7 +140,7 @@
 }
 
 .show {
-  display: block;
+  display: relative;
 }
 
 .hide {
@@ -163,9 +163,9 @@
 
 #emptyCartContainer {
   display: flex;
-  width: 300px;
-  justify-content: center;
+  height: 90vh;
   align-items: center;
+  justify-content: center;
 }
 
 
@@ -194,7 +194,7 @@
 }
 
 .hulaIcon {
-  width: 50%;
+  width: 350px;
 }
 
 .keepShoppingbtn {
