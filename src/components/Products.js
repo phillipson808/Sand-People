@@ -39,6 +39,7 @@ const Products = () => {
   `)
   data = data.allShopifyProduct.edges
   return (
+
     <div>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>

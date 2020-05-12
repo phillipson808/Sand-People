@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
+import isAvailable from "../components/IsAvailable"
 
 export const query = graphql`
   query($slug: String!) {
@@ -68,7 +69,7 @@ const Product = props => {
 
   let image = variantArray[0][1]
 
-  let initialAvailability = props.data.shopifyProduct.isAvailable
+  let initialAvailability = variantArray[0][2]
 
   let updateItem = (image, id, isAvailable) => {
     setImageSrc(image)
@@ -84,6 +85,7 @@ const Product = props => {
 
   return (
     <Layout>
+      {console.log(isAvailable)}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <div>
@@ -157,7 +159,7 @@ const Product = props => {
               )}
             </div>
             <div className={styles.variantHeader}>
-              <h3>Variants</h3>
+              {variantArray.length > 1 ? <h3>Variants</h3> : <p></p>}
             </div>
             <div className={styles.variantContainer}>
               <div className={styles.variantButtonContainer}>
