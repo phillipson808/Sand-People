@@ -65,7 +65,7 @@ const Product = props => {
     ]
   })
 
-  let currentVariantId = variantArray[0].shopifyId
+  let currentVariantId = variantArray[0][0]
 
   let image = variantArray[0][1]
 
@@ -81,10 +81,12 @@ const Product = props => {
     setImageSrc(image)
     setVariantId(currentVariantId)
     setIsAvailable(initialAvailability)
+    updateItem(image, currentVariantId, initialAvailability)
   }, [])
 
   return (
     <Layout>
+      {console.log(variantArray[0])}
       <div className={styles.pageContainer}>
         <div className={styles.productContainer}>
           <div className={styles.imageContainer}>
@@ -177,7 +179,7 @@ const Product = props => {
                           </button>
                         </div>
                       )
-                    }
+                    } 
                   })}
                 </div>
               </div>
