@@ -69,7 +69,7 @@ const Product = props => {
 
   let image = variantArray[0][1]
 
-  let initialAvailability = variantArray[0][2]
+  let initialAvailability = variantArray[0][3]
 
   let updateItem = (image, id, isAvailable) => {
     setImageSrc(image)
@@ -85,7 +85,7 @@ const Product = props => {
 
   return (
     <Layout>
-      {console.log(isAvailable)}
+      {console.log('VARIANT ARRAY AGAIN', variantArray)}
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
           <div>
