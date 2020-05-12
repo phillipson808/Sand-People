@@ -85,105 +85,106 @@ const Product = props => {
 
   return (
     <Layout>
-      {console.log('VARIANT ARRAY AGAIN', variantArray)}
-      <div className={styles.productContainer}>
-        <div className={styles.imageContainer}>
-          <div>
-            <img src={imageSrc} alt="Product Image"></img>
+      <div className={styles.pageContainer}>
+        <div className={styles.productContainer}>
+          <div className={styles.imageContainer}>
+            <div>
+              <img src={imageSrc} alt="Product Image"></img>
+            </div>
           </div>
-        </div>
-        <div className={styles.contentContainer}>
-          <div className={styles.content}>
-            <h1>{props.data.shopifyProduct.title}</h1>
-            <div className={styles.priceContainer}>
-              <p>
-                $
-                {Number(
-                  props.data.shopifyProduct.priceRange.maxVariantPrice.amount
-                ).toFixed(2)}
-              </p>
-              {isAvailable ? (
-                <p></p>
-              ) : (
-                <div className={styles.warningContainer}>
-                  <img
-                    src={warnIcon}
-                    className={styles.warnIcon}
-                    alt="Warning Icon"
-                  ></img>
-                  <p className={styles.soldOut}>Sold Out</p>
-                </div>
-              )}
-            </div>
-
-            <div className={styles.cartandquantity}>
-              <table
-                className={
-                  props.data.shopifyProduct.availableForSale
-                    ? styles.table
-                    : styles.hide
-                }
-              >
-                <tbody>
-                  <tr>
-                    <td
-                      className={styles.qtybtn}
-                      onClick={() => {
-                        if (qty > 1) {
-                          setAddQty(qty - 1)
-                        } else {
-                          return
-                        }
-                      }}
-                    >
-                      -
-                    </td>
-                    <td className={styles.qty}>{qty}</td>
-                    <td
-                      className={styles.qtybtn}
-                      onClick={() => {
-                        setAddQty(qty + 1)
-                      }}
-                    >
-                      +
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              {isAvailable ? (
-                <AddToCart variantId={variantId} qty={qty} />
-              ) : (
-                <button id={styles.buttonDisabled} disabled>
-                  Add to Cart
-                </button>
-              )}
-            </div>
-            <div className={styles.variantHeader}>
-              {variantArray.length > 1 ? <h3>Variants</h3> : <p></p>}
-            </div>
-            <div className={styles.variantContainer}>
-              <div className={styles.variantButtonContainer}>
-                {variantArray.map(variant => {
-                  if (variantArray.length > 1) {
-                    return (
-                      <div key={variant[0]}>
-                        <button
-                          id={styles.variantButton}
-                          onClick={() => {
-                            updateItem(variant[1], variant[0], variant[3])
-                          }}
-                        >
-                          {variant[2]}
-                        </button>
-                      </div>
-                    )
-                  }
-                })}
+          <div className={styles.contentContainer}>
+            <div className={styles.content}>
+              <h1>{props.data.shopifyProduct.title}</h1>
+              <div className={styles.priceContainer}>
+                <p>
+                  $
+                  {Number(
+                    props.data.shopifyProduct.priceRange.maxVariantPrice.amount
+                  ).toFixed(2)}
+                </p>
+                {isAvailable ? (
+                  <p></p>
+                ) : (
+                  <div className={styles.warningContainer}>
+                    <img
+                      src={warnIcon}
+                      className={styles.warnIcon}
+                      alt="Warning Icon"
+                    ></img>
+                    <p className={styles.soldOut}>Sold Out</p>
+                  </div>
+                )}
               </div>
+
+              <div className={styles.cartandquantity}>
+                <table
+                  className={
+                    props.data.shopifyProduct.availableForSale
+                      ? styles.table
+                      : styles.hide
+                  }
+                >
+                  <tbody>
+                    <tr>
+                      <td
+                        className={styles.qtybtn}
+                        onClick={() => {
+                          if (qty > 1) {
+                            setAddQty(qty - 1)
+                          } else {
+                            return
+                          }
+                        }}
+                      >
+                        -
+                      </td>
+                      <td className={styles.qty}>{qty}</td>
+                      <td
+                        className={styles.qtybtn}
+                        onClick={() => {
+                          setAddQty(qty + 1)
+                        }}
+                      >
+                        +
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                {isAvailable ? (
+                  <AddToCart variantId={variantId} qty={qty} />
+                ) : (
+                  <button id={styles.buttonDisabled} disabled>
+                    Add to Cart
+                  </button>
+                )}
+              </div>
+              <div className={styles.variantHeader}>
+                {variantArray.length > 1 ? <h3>Variants</h3> : <p></p>}
+              </div>
+              <div className={styles.variantContainer}>
+                <div className={styles.variantButtonContainer}>
+                  {variantArray.map(variant => {
+                    if (variantArray.length > 1) {
+                      return (
+                        <div key={variant[0]}>
+                          <button
+                            id={styles.variantButton}
+                            onClick={() => {
+                              updateItem(variant[1], variant[0], variant[3])
+                            }}
+                          >
+                            {variant[2]}
+                          </button>
+                        </div>
+                      )
+                    }
+                  })}
+                </div>
+              </div>
+              <p className={styles.description}>
+                {props.data.shopifyProduct.description}
+              </p>
             </div>
-            <p className={styles.description}>
-              {props.data.shopifyProduct.description}
-            </p>
           </div>
         </div>
       </div>
