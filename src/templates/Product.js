@@ -4,7 +4,6 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
-import isAvailable from "../components/IsAvailable"
 
 export const query = graphql`
   query($slug: String!) {
