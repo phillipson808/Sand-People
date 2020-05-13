@@ -1,5 +1,5 @@
 import React from "react"
-import Jewelry from "../components/Jewelry"
+import Jewelry from "../components/JewelryList"
 import Layout from "../components/Layout"
 
 const JeweleryPage = () => {

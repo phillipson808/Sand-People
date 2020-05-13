@@ -1,5 +1,5 @@
 import React from "react"
-import Products from "../components/Products"
+import Products from "../components/ProductList"
 import Layout from "../components/Layout"
 
 const ProductPage = () => {
