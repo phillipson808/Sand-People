@@ -184,6 +184,7 @@ const Product = props => {
               </div>
               <p className={styles.description}>
                 {props.data.shopifyProduct.description}
+                {console.log(props.data.shopifyProduct.description)}
               </p>
             </div>
           </div>
