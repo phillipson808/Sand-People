@@ -87,11 +87,6 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to="/kids" onClick={toggleDisplay}>
-                Kids
-              </Link>
-            </li>
-            <li>
               <Link to="/locations" onClick={toggleDisplay}>
                 Locations
               </Link>
