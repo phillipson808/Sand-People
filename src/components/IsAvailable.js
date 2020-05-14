@@ -4,7 +4,6 @@ import warnIcon from "../img/exclamation-red.svg"
 
 
 const isAvailable = available => {
-  {console.log('AVAILABLE available ', available)}
   if (available === true) {
     return
   } else {
