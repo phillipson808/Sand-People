@@ -28,14 +28,14 @@
 
 .dropdownContainer {
   position: relative;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 
 }
 
 .dropdownContainer:hover {
   #dropdown {
     opacity: 1;
-    transition: all 2s ease-in-out;
+    transition: all 0.5s ease-in-out;
     height: 135px;
   }
   .arrowIcon {
