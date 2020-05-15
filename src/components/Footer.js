@@ -1,4 +1,4 @@
-import React from "React"
+import React from "react"
 import logo from "../img/sp-logo-white.svg"
 import styles from "../styles/footer.module.scss"
 import instagram from "../img/instagram-white.svg"
