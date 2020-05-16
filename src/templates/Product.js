@@ -9,6 +9,7 @@ export const query = graphql`
   query($slug: String!) {
     shopifyProduct(handle: { eq: $slug }) {
       handle
+      descriptionHtml
       images {
         localFile {
           childImageSharp {
@@ -178,13 +179,16 @@ const Product = props => {
                           </button>
                         </div>
                       )
-                    } 
+                    }
                   })}
                 </div>
               </div>
               <p className={styles.description}>
-                {props.data.shopifyProduct.description}
-                {console.log(props.data.shopifyProduct.description)}
+                {props.data.shopifyProduct.descriptionHtml}
+                {
+                  ("DESCRIPTION",
+                  console.log(props.data.shopifyProduct.descriptionHtml))
+                }
               </p>
             </div>
           </div>
