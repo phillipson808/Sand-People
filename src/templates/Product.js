@@ -4,6 +4,8 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
+const parse = require('html-react-parser');
+
 
 export const query = graphql`
   query($slug: String!) {
@@ -184,7 +186,7 @@ const Product = props => {
                 </div>
               </div>
               <p className={styles.description}>
-                {props.data.shopifyProduct.descriptionHtml}
+                {parse(props.data.shopifyProduct.descriptionHtml)}
                 {
                   ("DESCRIPTION",
                   console.log(props.data.shopifyProduct.descriptionHtml))
