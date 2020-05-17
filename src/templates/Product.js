@@ -7,6 +7,7 @@ import warnIcon from "../img/exclamation-red.svg"
 const parse = require('html-react-parser');
 
 
+
 export const query = graphql`
   query($slug: String!) {
     shopifyProduct(handle: { eq: $slug }) {
@@ -78,6 +79,7 @@ const Product = props => {
     setVariantId(id)
     setIsAvailable(isAvailable)
   }
+
 
   useEffect(() => {
     setImageSrc(image)
@@ -173,7 +175,7 @@ const Product = props => {
                         <div key={variant[0]}>
                           <button
                             id={styles.variantButton}
-                            onClick={() => {
+                            onClick={(e) => {
                               updateItem(variant[1], variant[0], variant[3])
                             }}
                           >
@@ -187,10 +189,6 @@ const Product = props => {
               </div>
               <p className={styles.description}>
                 {parse(props.data.shopifyProduct.descriptionHtml)}
-                {
-                  ("DESCRIPTION",
-                  console.log(props.data.shopifyProduct.descriptionHtml))
-                }
               </p>
             </div>
           </div>

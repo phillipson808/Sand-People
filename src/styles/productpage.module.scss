@@ -73,8 +73,8 @@
   height: 20px;
   border-radius: 200px;
   margin-right: 10px;
-  border: 1px solid rgb(192, 192, 192);
-  color: rgb(192, 192, 192);
+  border: 1px solid #000;
+  color: #000
 }
 
 #variantButton:hover {
@@ -170,7 +170,7 @@
 #buttonDisabled {
   color: #c5c5c5;
   border: 1px solid #c5c5c5;
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 #buttonDisabled:hover {
