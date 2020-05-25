@@ -11,14 +11,35 @@ const Home = () => {
           <div className={styles.title}>
             <h1>E Komo Mai</h1>
             <p>
-              Welcome to Sand People. A Hawaii based company that has been curating gifts and locally made jewelry for over 30 years.
+              Welcome to Sand People. A Hawaii based company that has been
+              curating gifts and locally made jewelry for over 30 years.
             </p>
             <Link to="/products">
               <button>Shop Now</button>
             </Link>
           </div>
         </div>
+
         <div className={styles.container}>
+          <div className={styles.giftsShowcase}>
+            <div className={styles.giftsTitle}>
+              <h1>Gifts</h1>
+              <p>Shop our unique gifts that invoke our island lifestyle.</p>
+              <Link to="/gifts">
+                <button className={styles.showcaseButton}>Shop Gifts</button>
+              </Link>
+            </div>
+          </div>
+
+          <div className={styles.jeweleryShowcase}>
+            <div className={styles.giftsTitle}>
+              <h1>Jewelry</h1>
+              <p>Hand crafted jewelry made in Hawaii with Aloha.</p>
+              <Link to="/jewelry">
+                <button className={styles.showcaseButton}>Shop Jewelry</button>
+              </Link>
+            </div>
+          </div>
           <div className={styles.locationsShowcase}>
             <div className={styles.giftsTitle}>
               <h1>Locations</h1>
@@ -31,34 +52,12 @@ const Home = () => {
               </Link>
             </div>
           </div>
-
-          <div className={styles.giftsShowcase}>
-            <div className={styles.giftsTitle}>
-              <h1>Gifts</h1>
-              <p>
-                Shop our unique gifts that invoke our island lifestyle.
-              </p>
-              <Link to="/gifts">
-                <button className={styles.showcaseButton}>Shop Gifts</button>
-              </Link>
-            </div>
-          </div>
-          <div className={styles.jeweleryShowcase}>
-            <div className={styles.giftsTitle}>
-              <h1>Jewelry</h1>
-              <p>
-                Hand crafted jewelry made in Hawaii with Aloha.
-              </p>
-              <Link to="/jewelry">
-                <button className={styles.showcaseButton}>Shop Jewelry</button>
-              </Link>
-            </div>
-          </div>
           <div className={styles.ourstory}>
             <div className={styles.giftsTitle}>
               <h1>Our Story</h1>
               <p>
-                Home grown amongst the taro patches and natural beauty of Hanalei.
+                Home grown amongst the taro patches and natural beauty of
+                Hanalei.
               </p>
               <Link to="/about">
                 <button className={styles.showcaseButton}>Learn More</button>

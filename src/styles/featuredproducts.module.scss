@@ -1,0 +1,29 @@
+#container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto 20px auto;
+}
+
+.product {
+  width: 350px;
+}
+
+#titleContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#titleContainer h2 {
+  margin-top: 30px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  color:#1b1b1b;
+
+}
+
+
