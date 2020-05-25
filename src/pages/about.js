@@ -50,10 +50,6 @@ export default class about extends Component {
                 individuals.
               </p>
             </div>
-
-            <div className={styles.contentBlockTwo}>
-          
-          </div>
           </div>
         </div>
       </Layout>

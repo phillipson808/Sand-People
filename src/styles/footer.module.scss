@@ -27,12 +27,17 @@
   padding-left: 10px;
 }
 
- .returnPolicy a {
+ .footerPages a {
   color: #fff;
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-size: 10px;
   letter-spacing: 1px;
   text-decoration: underline;
+  font-weight: 400;
+}
+
+.returnPolicyLink {
+  margin-right: 50px;
 }
 
 

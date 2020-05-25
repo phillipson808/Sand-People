@@ -96,6 +96,7 @@ const Nav = () => {
                 About
               </Link>
             </li>
+          
             <li>
               <Link to="/shoppingcart" onClick={toggleDisplay}>
                 Cart
@@ -133,6 +134,7 @@ const Nav = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
+          
           </ul>
         </nav>
         {/*Cart Icon starts here...*/}

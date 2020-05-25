@@ -1,28 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 #container {
-  width: 80%;
-  margin: 50px auto;
+  width: 90%;
+  display: flex;
+  margin: 50px auto 0px auto;
+  justify-content: space-between;
+  align-items: top;
 }
 
-#container h1 {
-  text-align: center;
-  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
-  font-size: 20px;
+#container h2 {
+  text-align: left;
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-.contentBlock {
-  margin-top: 40px;
+
+.description {
+  margin-bottom: 30px;
 }
 
-.contentBlock h4 {
-  font-family: 'Source Sans Pro';
-  letter-spacing: 1px;
-  padding-bottom: 10px;
+a {
+  font-weight: 800;
+  color: rgb(128, 128, 128);
+  text-decoration: underline;
 }
 
-.contentBlock p {
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+a:hover {
+  color: rgb(192, 192, 192);
+}
+
+
+
+.imageContainer {
+  background: url('../img/turtle.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 40%;
+  min-height: 550px;
+}
+
+.formBackground {
+  background: #f1f1f1;
+  padding: 50px;
+  width: 50%;
+}
+
+.description h4 {
+  color: #000;
+
+}
+.description {
+  width: 100%;
   font-size: 12px;
-  line-height: 30px;
+  letter-spacing: 0.5px;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  color: rgb(128, 128, 128);
+  margin-top: 5px;
+  line-height: 20px;
+}
+
+@media only screen and (max-width: 760px) {
+
+  #container {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    min-height: 250px;
+    width: 100%;
+  }
+
+  .formBackground {
+    width: 100%;
+  }
+ 
+
 }
