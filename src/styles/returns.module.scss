@@ -1,0 +1,28 @@
+#container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+#container h1 {
+  text-align: center;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.contentBlock {
+  margin-top: 40px;
+}
+
+.contentBlock h4 {
+  font-family: 'Source Sans Pro';
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+.contentBlock p {
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 30px;
+}
