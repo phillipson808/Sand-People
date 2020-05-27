@@ -10,18 +10,23 @@ const ContactForm = () => {
         <div className={styles.formBackground}>
           <h2>Contact Us</h2>
           <div className={styles.description}>
-          <p>For general inquiries, you can also reach us at info@sandpeople.com. Mahalo!</p>
+            <p>
+              For general inquiries, you can also reach us at
+              info@sandpeople.com. Mahalo!
+            </p>
           </div>
           <div className={styles.formContainer}>
             <form
               name="contact"
               method="post"
               data-netlify="true"
-              data-netlify-honeypot='bot-field'
+              data-netlify-honeypot="bot-field"
               className={styles.form}
             >
               <div className={styles.labelContainer}>
                 <div>
+                  <input type="hidden" name="form-name" value="contact" />
+
                   <label>
                     <input type="text" name="name" placeholder="Your Name" />
                   </label>
