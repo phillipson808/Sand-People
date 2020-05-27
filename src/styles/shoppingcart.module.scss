@@ -18,6 +18,11 @@
   text-align: center;
   text-decoration: none;
 }
+.quantityContainer a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
 
 .checkoutContainer {
   text-align: center;
@@ -32,6 +37,7 @@
 .checkoutContainer:hover {
   background: rgb(47, 145, 128);
   border: 1px solid rgb(47, 145, 128);
+  color: #fff;
 
 }
 

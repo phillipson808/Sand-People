@@ -45,6 +45,7 @@
 .checkoutContainer:hover {
   background: rgb(47, 145, 128);
   border: 1px solid rgb(47, 145, 128);
+  color: #fff;
 
 }
 
@@ -189,6 +190,11 @@
   width: 300px;
   justify-content: center;
   align-items: center;
+}
+
+.quantityContainer a {
+  text-decoration: none;
+  font-weight: 400;
 }
 
 
