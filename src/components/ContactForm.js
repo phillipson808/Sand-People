@@ -15,7 +15,7 @@ const ContactForm = () => {
           <div className={styles.formContainer}>
             <form
               name="contact"
-              method="POST"
+              method="post"
               data-netlify="true"
               data-netlify-honeypot='bot-field'
               className={styles.form}
@@ -23,11 +23,11 @@ const ContactForm = () => {
               <div className={styles.labelContainer}>
                 <div>
                   <label>
-                    <input type="text" name="name" placeholder="Name" />
+                    <input type="text" name="name" placeholder="Your Name" />
                   </label>
                   <br />
                   <label>
-                    <input type="email" name="email" placeholder="Email" />
+                    <input type="email" name="email" placeholder="Your Email" />
                   </label>
                 </div>
                 <div className={styles.message}>
