@@ -46,6 +46,9 @@ const Jewelry = () => {
     }
   `)
   data = data.allShopifyCollection.edges[0].node;
+  data = data.products.sort((a, b) => {
+    return a.vendor > b.vendor ? 1 : -1
+  })
  
   return (
     <div>
@@ -57,7 +60,7 @@ const Jewelry = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {data.products.map(item => {
+          {data.map(item => {
             return (
               <div className={styles.productImage} key={item.id}>
                 <Link to={`/products/${item.handle}`}>

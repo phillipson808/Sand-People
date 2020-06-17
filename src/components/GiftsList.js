@@ -7,7 +7,7 @@ const Jewelry = () => {
   let data = useStaticQuery(graphql`
     {
       allShopifyCollection(
-        sort: { fields: [products___vendor] }
+        sort: { fields: [title] }
         filter: { handle: { eq: "gifts" } }
       ) {
         edges {
@@ -15,6 +15,7 @@ const Jewelry = () => {
             id
             title
             handle
+
             products {
               title
               vendor
@@ -45,9 +46,13 @@ const Jewelry = () => {
       }
     }
   `)
-  data = data.allShopifyCollection.edges[0].node;
-  console.log('Gifts data', data)
- 
+  data = data.allShopifyCollection.edges[0].node
+
+  data = data.products.sort((a, b) => {
+    return a.vendor > b.vendor ? 1 : -1
+  })
+
+
   return (
     <div>
       <div id={styles.Showcase}>
@@ -58,7 +63,7 @@ const Jewelry = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {data.products.map(item => {
+          {data.map(item => {
             return (
               <div className={styles.productImage} key={item.id}>
                 <Link to={`/products/${item.handle}`}>
@@ -72,9 +77,9 @@ const Jewelry = () => {
                     <h4 className={styles.productDesc}>{item.title}</h4>
                     <p className={styles.productDesc}>
                       $
-                      {Number(
-                        item.priceRange.maxVariantPrice.amount
-                      ).toFixed(2)}
+                      {Number(item.priceRange.maxVariantPrice.amount).toFixed(
+                        2
+                      )}
                     </p>
                   </div>
                 </div>
