@@ -7,12 +7,13 @@ const Jewelry = () => {
   let data = useStaticQuery(graphql`
     {
       allShopifyCollection(
-        sort: { fields: [title] }
+        sort: { fields: [vendor] }
         filter: { handle: { eq: "jewelry" } }
       ) {
         edges {
           node {
             id
+            vendor
             title
             handle
             products {
