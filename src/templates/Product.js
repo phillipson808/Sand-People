@@ -13,6 +13,7 @@ export const query = graphql`
     shopifyProduct(handle: { eq: $slug }) {
       handle
       descriptionHtml
+      vendor
       images {
         localFile {
           childImageSharp {
@@ -65,6 +66,7 @@ const Product = props => {
       variant.availableForSale,
       variant.price,
       variant.id,
+      variant.vendor
     ]
   })
 

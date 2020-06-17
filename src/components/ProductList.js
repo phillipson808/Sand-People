@@ -7,10 +7,11 @@ import warnIcon from "../img/exclamation-red.svg"
 const Products = () => {
   let data = useStaticQuery(graphql`
     {
-      allShopifyProduct(sort: { fields: [title] }) {
+      allShopifyProduct(sort: { fields: [vendor] }) {
         edges {
           node {
             title
+            vendor
             handle
             images {
               localFile {
@@ -37,10 +38,12 @@ const Products = () => {
       }
     }
   `)
-  data = data.allShopifyProduct.edges
-  return (
+  data = data.allShopifyProduct.edges;
 
+
+  return (
     <div>
+
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>All Products</h1>
