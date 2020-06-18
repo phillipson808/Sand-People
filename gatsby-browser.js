@@ -5,3 +5,5 @@ export const wrapRootElement = ({ element }) => {
   return <StoreProvider>{element}</StoreProvider>
 }
 
+export const onServiceWorkerUpdateReady = () => window.location.reload();
+
