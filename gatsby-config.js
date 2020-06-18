@@ -57,6 +57,12 @@ plugins: [
         },
       ],
     },
+  },
+  {
+    resolve: `gatsby-plugin-offline`,
+    options: {
+      precachePages: [`/products/`, `/gifts/`, `/jewelry`]
+    }
   }
   
 ]
