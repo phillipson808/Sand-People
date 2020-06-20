@@ -129,9 +129,9 @@ const Nav = () => {
         <div className={styles.cartContainer} onClick={toggleCartOpen}>
           <div className={styles.cart}>
             <img src={cartImage}></img>
-            <span className={styles.qty}>{checkout.lineItems.reduce((total, item) => {
+            <span className={styles.qty}>{checkout ? checkout.lineItems.reduce((total, item) => {
               return total + item.quantity
-            }, 0)}</span>
+            }, 0) : <div></div>}</span>
           </div>
         </div>
         <div>
