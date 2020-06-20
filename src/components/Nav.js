@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { StoreContext } from "../context/StoreContext"
 import { Link } from "gatsby"
 import Cart from "./Cart"
@@ -15,6 +15,7 @@ const Nav = () => {
     checkout,
     toggleDisplay,
     showDisplay,
+    initializeCheckout,
   } = useContext(StoreContext)
   const cartTransitions = useTransition(isCartOpen, null, {
     from: { transform: "translate3d(100%, 0, 0)" },
@@ -22,24 +23,12 @@ const Nav = () => {
     leave: { transform: "translate3d(100%, 0, 0)" },
   })
 
-  let qty
 
-  if (checkout) {
-    qty = checkout.lineItems.reduce((total, item) => {
-      return total + item.quantity
-    }, 0)
-  } else {
-    qty = 0
-  }
+ 
 
-  const getQty = () => {
-    qty = checkout.lineItems.reduce((total, item) => {
-      return total + item.quantity
-    }, 0)
-  }
 
   useEffect(() => {
-    getQty()
+    initializeCheckout()
     if (isCartOpen === true) {
       toggleCartOpen()
     }
@@ -57,52 +46,52 @@ const Nav = () => {
           <div className={styles.line}></div>
         </div>
 
-          <ul
-            className={styles.mobileLinks}
-            id={showDisplay ? styles.show : styles.hide}
-          >
-            <div className={styles.closeContainer} onClick={toggleDisplay}>
-              <div className={styles.close}>
-                <p>X</p>
-              </div>
+        <ul
+          className={styles.mobileLinks}
+          id={showDisplay ? styles.show : styles.hide}
+        >
+          <div className={styles.closeContainer} onClick={toggleDisplay}>
+            <div className={styles.close}>
+              <p>X</p>
             </div>
-            <li>
-              <Link to="/" onClick={toggleDisplay}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/products" onClick={toggleDisplay}>
-                All Products
-              </Link>
-            </li>
-            <li>
-              <Link to="/gifts" onClick={toggleDisplay}>
-                Gifts
-              </Link>
-            </li>
-            <li>
-              <Link to="/jewelry" onClick={toggleDisplay}>
-                Jewelry
-              </Link>
-            </li>
-            <li>
-              <Link to="/locations" onClick={toggleDisplay}>
-                Locations
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={toggleDisplay}>
-                About
-              </Link>
-            </li>
-          
-            <li>
-              <Link to="/shoppingcart" onClick={toggleDisplay}>
-                Cart
-              </Link>
-            </li>
-          </ul>
+          </div>
+          <li>
+            <Link to="/" onClick={toggleDisplay}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/products" onClick={toggleDisplay}>
+              All Products
+            </Link>
+          </li>
+          <li>
+            <Link to="/gifts" onClick={toggleDisplay}>
+              Gifts
+            </Link>
+          </li>
+          <li>
+            <Link to="/jewelry" onClick={toggleDisplay}>
+              Jewelry
+            </Link>
+          </li>
+          <li>
+            <Link to="/locations" onClick={toggleDisplay}>
+              Locations
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={toggleDisplay}>
+              About
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/shoppingcart" onClick={toggleDisplay}>
+              Cart
+            </Link>
+          </li>
+        </ul>
       </nav>
 
       <div id={styles.NavContainer}>
@@ -134,20 +123,21 @@ const Nav = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
-          
           </ul>
         </nav>
         {/*Cart Icon starts here...*/}
         <div className={styles.cartContainer} onClick={toggleCartOpen}>
           <div className={styles.cart}>
             <img src={cartImage}></img>
-            <span className={styles.qty}>{qty}</span>
+            <span className={styles.qty}>{checkout.lineItems.reduce((total, item) => {
+              return total + item.quantity
+            }, 0)}</span>
           </div>
         </div>
         <div>
           {cartTransitions.map(({ item, key, props }) => {
             //Item takes place of isCartOpen boolean
-            return item && <Cart key={key} style={props} qty={qty} />
+            return item && <Cart key={key} style={props} />
           })}
         </div>
       </div>

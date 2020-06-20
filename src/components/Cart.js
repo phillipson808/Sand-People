@@ -6,7 +6,7 @@ import styles from "../styles/cart.module.scss"
 import cardIcon from "../img/cc-icon-white.svg"
 import emptyCartIcon from "../img/emptycart-icon.png"
 
-const Cart = ({ style, qty }) => {
+const Cart = ({ style }) => {
   //Style is the prop that is being passed in to create animation.
   //Shopify test card #: 4242424242424242
   const { checkout, addProductToCart, removeQuantityFromCart } = useContext(
@@ -37,7 +37,7 @@ const Cart = ({ style, qty }) => {
         <div className={styles.itemContainer}>
           <div className={cartEmpty ? styles.hide : styles.show}>
             <div className={styles.productContainer}>
-              {checkout.lineItems.map(item => {
+              {checkout ? checkout.lineItems.map(item => {
                 return (
                   <div key={item.id} className={styles.cartItemContainer}>
                     <div className={styles.imageContainer}>
@@ -64,6 +64,7 @@ const Cart = ({ style, qty }) => {
                                       item.id,
                                       item.quantity - 1
                                     )
+
                                   }}
                                 >
                                   -
@@ -85,12 +86,14 @@ const Cart = ({ style, qty }) => {
                     </div>
                   </div>
                 )
-              })}
+              }) : <div></div> }
             </div>
             <div className={styles.ruler}></div>
 
             <div className={styles.quantityContainer}>
-              <p className={styles.totalqty}>Cart Quantity: {qty}</p>
+              <p className={styles.totalqty}>Cart Quantity: {checkout.lineItems.reduce((total, item) => {
+                return total + item.quantity
+              }, 0)}</p>
               <p className={styles.subtotal}>
                 Subtotal: ${checkout.totalPrice}
               </p>

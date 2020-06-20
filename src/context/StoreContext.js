@@ -32,7 +32,7 @@ export const StoreProvider = ({ children }) => {
   const [isCartOpen, setCartOpen] = useState(false)
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
-  const [qty, setAddQty] = useState(1)
+  const [qty, setAddQty] = useState()
   const [imageSrc, setImageSrc] = useState("")
   const [variantId, setVariantId] = useState("")
   const [price, setPrice] = useState('')
@@ -82,6 +82,7 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
+
   const initializeCheckout = async () => {
     try {
       //Check if ID exists
@@ -117,7 +118,9 @@ export const StoreProvider = ({ children }) => {
         checkout.id,
         lineItems
       )
+      
       setCheckout(newCheckout)
+
     } catch (e) {
       console.error(e)
     }
@@ -156,6 +159,11 @@ export const StoreProvider = ({ children }) => {
     }
   }
 
+ 
+
+
+  
+
   return (
     <StoreContext.Provider
       value={{
@@ -172,7 +180,8 @@ export const StoreProvider = ({ children }) => {
         addtoQty,
         setImageSrc,
         setVariantId,
-        setIsAvailable
+        setIsAvailable,
+        initializeCheckout
       }}
     >
       {children}
