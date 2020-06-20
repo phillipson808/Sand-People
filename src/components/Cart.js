@@ -91,9 +91,9 @@ const Cart = ({ style }) => {
             <div className={styles.ruler}></div>
 
             <div className={styles.quantityContainer}>
-              <p className={styles.totalqty}>Cart Quantity: {checkout.lineItems.reduce((total, item) => {
+              <p className={styles.totalqty}>Cart Quantity: {checkout ? checkout.lineItems.reduce((total, item) => {
                 return total + item.quantity
-              }, 0)}</p>
+              }, 0) : <div></div>}</p>
               <p className={styles.subtotal}>
                 Subtotal: ${checkout.totalPrice}
               </p>
