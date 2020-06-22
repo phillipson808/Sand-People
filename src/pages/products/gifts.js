@@ -1,6 +1,6 @@
 import React from "react"
-import Gifts from "../components/GiftsList"
-import Layout from "../components/Layout"
+import Gifts from "../../components/GiftsList"
+import Layout from "../../components/Layout"
 
 const GiftsPage = () => {
   return (

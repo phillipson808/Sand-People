@@ -61,17 +61,17 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/products" onClick={toggleDisplay}>
+            <Link to="/products/all-products" onClick={toggleDisplay}>
               All Products
             </Link>
           </li>
           <li>
-            <Link to="/gifts" onClick={toggleDisplay}>
+            <Link to="/products/gifts" onClick={toggleDisplay}>
               Gifts
             </Link>
           </li>
           <li>
-            <Link to="/jewelry" onClick={toggleDisplay}>
+            <Link to="/products/jewelry" onClick={toggleDisplay}>
               Jewelry
             </Link>
           </li>
@@ -105,14 +105,14 @@ const Nav = () => {
             </li>
             <li>
               <div className={styles.dropdownContainer}>
-                <Link to="/products" id={styles.productsLink}>
+                <Link to="/products/all-products" id={styles.productsLink}>
                   <span>Products</span>
                   <img src={arrow} alt="" className={styles.arrowIcon}></img>
                 </Link>
                 <div id={styles.dropdown}>
-                  <Link to="/products">All</Link>
-                  <Link to="/gifts">Gifts</Link>
-                  <Link to="/jewelry">Jewelry</Link>
+                  <Link to="/products/all-products">All</Link>
+                  <Link to="/products/gifts">Gifts</Link>
+                  <Link to="/products/jewelry">Jewelry</Link>
                 </div>
               </div>
             </li>
