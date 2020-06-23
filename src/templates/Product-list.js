@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
@@ -51,12 +51,12 @@ const ProductsList = props => {
         ? -1
         : 0
   )
-  console.log(collection)
+
   return (
     <div>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
-          <h1>All Products</h1>
+          <h1>{props.data.allShopifyCollection.nodes[0].title}</h1>
           <p>Shop our collection of ocean-inspired products.</p>
         </div>
       </div>
