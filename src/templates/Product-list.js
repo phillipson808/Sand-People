@@ -6,7 +6,7 @@ import warnIcon from "../img/exclamation-red.svg"
 
 export const query = graphql`
   query($slug: String!) {
-    allShopifyCollection(filter: {handle: {eq: $slug}}, sort: {fields: products___vendor}) {
+    allShopifyCollection(filter: {handle: {eq: $slug}}, sort: {fields: id}) {
       nodes {
         title
         handle
@@ -40,9 +40,8 @@ export const query = graphql`
   }
 `
 const ProductsList = (props) => {
-  {console.log(props, 'Props product-list')}
-  let collection = props.data.allShopifyCollection.nodes[0].products;
-
+  let collection = props.data.allShopifyCollection.nodes[0].products.sort((a,b) => a.vendor.toLowerCase() > b.vendor.toLowerCase() ? 1 : a.vendor.toLowerCase() < b.vendor.toLowerCase() ? -1 : 0)
+  console.log(collection);
   return (
     <div>
       <div id={styles.Showcase}>
