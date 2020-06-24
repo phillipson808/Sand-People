@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
+import Layout from '../components/Layout';
 
 export const query = graphql`
   query($slug: String!) {
@@ -53,7 +54,7 @@ const ProductsList = props => {
   )
 
   return (
-    <div>
+    <Layout>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>{props.data.allShopifyCollection.nodes[0].title}</h1>
@@ -109,7 +110,7 @@ const ProductsList = props => {
           )}
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 

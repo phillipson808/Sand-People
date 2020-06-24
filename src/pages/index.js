@@ -25,7 +25,7 @@ const Home = () => {
             <div className={styles.giftsTitle}>
               <h1>Gifts</h1>
               <p>Shop our unique gifts that invoke our island lifestyle.</p>
-              <Link to="/gifts">
+              <Link to="/products/collections/gifts">
                 <button className={styles.showcaseButton}>Shop Gifts</button>
               </Link>
             </div>
@@ -35,7 +35,7 @@ const Home = () => {
             <div className={styles.giftsTitle}>
               <h1>Jewelry</h1>
               <p>Hand crafted jewelry made in Hawaii with Aloha.</p>
-              <Link to="/jewelry">
+              <Link to="/products/collections/jewelry">
                 <button className={styles.showcaseButton}>Shop Jewelry</button>
               </Link>
             </div>

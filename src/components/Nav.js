@@ -66,12 +66,12 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/gifts" onClick={toggleDisplay}>
+            <Link to="/products/collections/gifts" onClick={toggleDisplay}>
               Gifts
             </Link>
           </li>
           <li>
-            <Link to="/jewelry" onClick={toggleDisplay}>
+            <Link to="/products/collections/jewelry" onClick={toggleDisplay}>
               Jewelry
             </Link>
           </li>
@@ -111,8 +111,8 @@ const Nav = () => {
                 </Link>
                 <div id={styles.dropdown}>
                   <Link to="/products">All</Link>
-                  <Link to="/gifts">Gifts</Link>
-                  <Link to="/jewelry">Jewelry</Link>
+                  <Link to="/products/collections/gifts">Gifts</Link>
+                  <Link to="/products/collections/jewelry">Jewelry</Link>
                 </div>
               </div>
             </li>
