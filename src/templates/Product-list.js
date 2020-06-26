@@ -48,6 +48,8 @@ export const query = graphql`
 const ProductsList = props => {
   const { updateProductList, productList } = useContext(StoreContext)
   const [vendorList, setVendorList] = useState()
+  const [productCollection, setProductCollection] = useState()
+
   let collection;
 
   const getCollection = () => {
@@ -70,6 +72,8 @@ const getVendorList = (products) => {
 
   useEffect(() => {
     getCollection()
+    setProductCollection(collection)
+    updateProductList(productCollection)
     updateProductList(collection)
     getVendorList(collection);
     console.log(vendorList)
@@ -87,7 +91,7 @@ const getVendorList = (products) => {
         </div>
       </div>
       <div className={styles.container}>
-        <ProductFilter vendorArr={vendorList} />
+        <ProductFilter vendorArr={vendorList} productCollection={productCollection} />
         <div className={styles.grid}>
           {productList ? (
             productList.map(item => {
