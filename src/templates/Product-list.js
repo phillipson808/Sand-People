@@ -5,6 +5,7 @@ import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
 import Layout from '../components/Layout';
+import ProductFilter from '../components/ProductFilter';
 
 export const query = graphql`
   query($slug: String!) {
@@ -46,8 +47,8 @@ export const query = graphql`
 `
 const ProductsList = props => {
   const { updateProductList, productList } = useContext(StoreContext)
+  const [vendorList, setVendorList] = useState()
   let collection;
-  let vendorList;
 
   const getCollection = () => {
     collection = props.data.allShopifyCollection.nodes[0].products.sort(
@@ -62,7 +63,8 @@ const ProductsList = props => {
 
 const getVendorList = (products) => {
   let vendorArray = products.map(item => item.vendor)
-  vendorList = [...new Set(vendorArray)]
+  vendorArray = [...new Set(vendorArray)]
+  setVendorList(vendorArray)
 }
  
 
@@ -70,6 +72,7 @@ const getVendorList = (products) => {
     getCollection()
     updateProductList(collection)
     getVendorList(collection);
+    console.log(vendorList)
   }, [collection])
 
  
@@ -77,7 +80,6 @@ const getVendorList = (products) => {
  
   return (
     <Layout>
-      <button onClick={()=>{updateProductList(productList)}}>Test Collection Filter</button>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>{props.data.allShopifyCollection.nodes[0].title}</h1>
@@ -85,6 +87,7 @@ const getVendorList = (products) => {
         </div>
       </div>
       <div className={styles.container}>
+        <ProductFilter vendorArr={vendorList} />
         <div className={styles.grid}>
           {productList ? (
             productList.map(item => {

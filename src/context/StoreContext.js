@@ -22,6 +22,7 @@ const defaultValues = {
   variantId: "",
   price: '',
   productList: [],
+  vendorList: []
 }
 
 export const StoreContext = createContext(defaultValues)
@@ -39,6 +40,7 @@ export const StoreProvider = ({ children }) => {
   const [price, setPrice] = useState('')
   const [isAvailable, setIsAvailable] = useState(true)
   let [productList, setProductlist] = useState(defaultValues.productList);
+  let [vendorList, setVendorList] = useState(defaultValues.vendorList)
 
   //setCheckout is like the setState function in React Hooks.
 
