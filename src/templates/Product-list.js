@@ -1,5 +1,6 @@
-import React from "react"
+import React, {useContext, useEffect, useState} from "react"
 import { graphql, Link } from "gatsby"
+import { StoreContext } from "../context/StoreContext"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
@@ -44,17 +45,39 @@ export const query = graphql`
   }
 `
 const ProductsList = props => {
-  let collection = props.data.allShopifyCollection.nodes[0].products.sort(
-    (a, b) =>
-      a.vendor.toLowerCase() > b.vendor.toLowerCase()
-        ? 1
-        : a.vendor.toLowerCase() < b.vendor.toLowerCase()
-        ? -1
-        : 0
-  )
+  const { updateProductList, productList } = useContext(StoreContext)
+  let collection;
+  let vendorList;
 
+  const getCollection = () => {
+    collection = props.data.allShopifyCollection.nodes[0].products.sort(
+      (a, b) =>
+        a.vendor.toLowerCase() > b.vendor.toLowerCase()
+          ? 1
+          : a.vendor.toLowerCase() < b.vendor.toLowerCase()
+          ? -1
+          : 0
+    )
+  }
+
+const getVendorList = (products) => {
+  let vendorArray = products.map(item => item.vendor)
+  vendorList = [...new Set(vendorArray)]
+}
+ 
+
+  useEffect(() => {
+    getCollection()
+    updateProductList(collection)
+    getVendorList(collection);
+  }, [collection])
+
+ 
+  
+ 
   return (
     <Layout>
+      <button onClick={()=>{updateProductList(productList)}}>Test Collection Filter</button>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>{props.data.allShopifyCollection.nodes[0].title}</h1>
@@ -63,8 +86,8 @@ const ProductsList = props => {
       </div>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {collection ? (
-            collection.map(item => {
+          {productList ? (
+            productList.map(item => {
               return (
                 <div className={styles.productImage} key={item.shopifyId}>
                   <div>

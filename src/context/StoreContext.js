@@ -21,6 +21,7 @@ const defaultValues = {
   imageSrc: "",
   variantId: "",
   price: '',
+  productList: [],
 }
 
 export const StoreContext = createContext(defaultValues)
@@ -37,6 +38,7 @@ export const StoreProvider = ({ children }) => {
   const [variantId, setVariantId] = useState("")
   const [price, setPrice] = useState('')
   const [isAvailable, setIsAvailable] = useState(true)
+  let [productList, setProductlist] = useState(defaultValues.productList);
 
   //setCheckout is like the setState function in React Hooks.
 
@@ -46,6 +48,7 @@ export const StoreProvider = ({ children }) => {
 
   useEffect(() => {
     initializeCheckout()
+    console.log(productList)
   }, []) //If you leave second argument as blank array it acts like componentdidmount
 
   //Get new checkout (useful for after a customer completes payment for an order to reset cart.)
@@ -57,6 +60,20 @@ export const StoreProvider = ({ children }) => {
       }
     } catch (e) {
       console.error(e)
+    }
+  }
+
+  const updateProductList =  async (productArr, vendor) => {
+    try {
+      if(vendor) {
+        let filteredArr = productArr.filter((item) => item.vendor === vendor);
+        setProductlist(filteredArr)
+      } else {
+        setProductlist(productArr)
+      }
+ 
+    } catch(e) {
+      console.log(e);
     }
   }
 
@@ -181,6 +198,8 @@ export const StoreProvider = ({ children }) => {
         setImageSrc,
         setVariantId,
         setIsAvailable,
+        updateProductList,
+        productList,
         initializeCheckout
       }}
     >

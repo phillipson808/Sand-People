@@ -92,7 +92,6 @@ const Product = props => {
 
   return (
     <Layout>
-      {console.log(variantArray[0])}
       <div className={styles.pageContainer}>
         <div className={styles.productContainer}>
           <div className={styles.imageContainer}>
