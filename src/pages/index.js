@@ -8,6 +8,12 @@ const Home = () => {
     <Layout>
       <div id={styles.Home}>
         <div id={styles.Showcase}>
+          <div className={styles.warningHeader}>
+            <p>
+              Aloha! Our site will not accept payments until July 1st, 2020 but feel
+              free to browse!
+            </p>
+          </div>
           <div className={styles.title}>
             <h1>E Komo Mai</h1>
             <p>

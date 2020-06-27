@@ -18,6 +18,19 @@
   width: 100%;
 }
 
+.warningHeader {
+  background: #30AC93;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+.warningHeader p {
+  font-size: 13px;
+}
+
 .title {
   color: #fff;
   position: absolute;
