@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react"
 import { StoreContext } from "../context/StoreContext"
+import styles from '../styles/filter.module.scss'
 
 const ProductFilter = props => {
   const [productList, setProductList] = useState()
@@ -14,7 +15,8 @@ const ProductFilter = props => {
 
   return (
     <div>
-      <select name="vendors" id="vendors" onChange={submit}>
+      <select className={styles.dropDown} name="vendors" id="vendors" onChange={submit}>
+        <option value="All">All</option>
         {props.vendorArr ? (
           props.vendorArr.map((vendor, i) => {
             return (

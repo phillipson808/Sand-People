@@ -67,7 +67,10 @@ export const StoreProvider = ({ children }) => {
 
   const updateProductList =  async (productArr, vendor, collection) => {
     try {
-      if(vendor) {
+      if(vendor === 'All') {
+        setProductlist(collection)
+      }
+      else if(vendor) {
         let filteredArr = collection.filter((item) => item.vendor === vendor);
         setProductlist(filteredArr)
       } else {

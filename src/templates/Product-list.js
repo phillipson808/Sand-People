@@ -76,7 +76,6 @@ const getVendorList = (products) => {
     updateProductList(productCollection)
     updateProductList(collection)
     getVendorList(collection);
-    console.log(vendorList)
   }, [collection])
 
  

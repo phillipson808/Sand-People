@@ -1,0 +1,20 @@
+.dropDown{
+  padding: 5px;
+  min-width: 175px;
+  border: 2px solid rgb(243, 243, 243);
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  outline: none;
+  border-radius: 5px;
+
+}
+
+.vendor {
+  font-family: 'Soruce Sans Pro', Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+}
+
+.vendor:focus {
+  border: 1px solid black;
+}
