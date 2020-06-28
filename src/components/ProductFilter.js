@@ -9,13 +9,12 @@ const ProductFilter = props => {
   const submit = ((e) => {
     setProductCollection(props.productCollection)
     setProductList(props.productCollection)
-    updateProductList(productList, e.target.value)
+    updateProductList(props.productList, e.target.value, props.productCollection)
   })
 
   return (
     <div>
       <select name="vendors" id="vendors" onChange={submit}>
-
         {props.vendorArr ? (
           props.vendorArr.map((vendor, i) => {
             return (

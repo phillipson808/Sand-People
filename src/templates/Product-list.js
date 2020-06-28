@@ -91,7 +91,7 @@ const getVendorList = (products) => {
         </div>
       </div>
       <div className={styles.container}>
-        <ProductFilter vendorArr={vendorList} productCollection={productCollection} />
+        <ProductFilter vendorArr={vendorList} productCollection={productCollection} productList={productList} />
         <div className={styles.grid}>
           {productList ? (
             productList.map(item => {
