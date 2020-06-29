@@ -10,7 +10,7 @@ const Home = () => {
         <div id={styles.Showcase}>
           <div className={styles.warningHeader}>
             <p>
-              Aloha! Our site will not accept payments until July 1st, 2020 but feel
+              Aloha! Our site will not accept payments until July 4th, 2020 but feel
               free to browse!
             </p>
           </div>
