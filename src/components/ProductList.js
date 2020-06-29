@@ -43,7 +43,6 @@ const Products = () => {
 
   return (
     <div>
-
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>All Products</h1>
