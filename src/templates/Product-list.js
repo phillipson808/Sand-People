@@ -77,7 +77,6 @@ const getVendorList = (products) => {
  
   return (
     <Layout>
-      <button onClick={()=>{updateProductList(productList)}}>Test Collection Filter</button>
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
           <h1>{props.data.allShopifyCollection.nodes[0].title}</h1>
