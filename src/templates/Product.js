@@ -4,9 +4,7 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
-const parse = require('html-react-parser');
-
-
+const parse = require("html-react-parser")
 
 export const query = graphql`
   query($slug: String!) {
@@ -57,6 +55,8 @@ const Product = props => {
   const [imageSrc, setImageSrc] = useState("")
   const [variantId, setVariantId] = useState("")
   const [isAvailable, setIsAvailable] = useState(true)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
 
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
     return [
@@ -66,14 +66,16 @@ const Product = props => {
       variant.availableForSale,
       variant.price,
       variant.id,
-      variant.vendor
+      variant.vendor,
     ]
   })
 
   let currentVariantId = variantArray[0][0]
 
   let image = variantArray[0][1]
-
+  let imageCount = props.data.shopifyProduct.images.length
+  let imagesArray = props.data.shopifyProduct.images
+  let localImageIndex = 0;
   let initialAvailability = variantArray[0][3]
 
   let updateItem = (image, id, isAvailable) => {
@@ -82,6 +84,23 @@ const Product = props => {
     setIsAvailable(isAvailable)
   }
 
+  let nextImage = () => {
+    try {
+      if (currentImageIndex === imageCount-1) {
+        setCurrentImageIndex(0);
+      } else if (currentImageIndex < imageCount-1) {
+        setCurrentImageIndex(currentImageIndex + 1)
+
+      } else {
+        setCurrentImageIndex(0);
+      }
+      setImageSrc(
+        imagesArray[currentImageIndex].localFile["childImageSharp"].fluid.src
+      )
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   useEffect(() => {
     setImageSrc(image)
@@ -97,6 +116,7 @@ const Product = props => {
           <div className={styles.imageContainer}>
             <div>
               <img src={imageSrc} alt="Product Image"></img>
+              <button onClick={nextImage}>next</button>
             </div>
           </div>
           <div className={styles.contentContainer}>
@@ -176,7 +196,7 @@ const Product = props => {
                         <div key={variant[0]}>
                           <button
                             id={styles.variantButton}
-                            onClick={(e) => {
+                            onClick={e => {
                               updateItem(variant[1], variant[0], variant[3])
                             }}
                           >

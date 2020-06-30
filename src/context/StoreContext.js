@@ -11,6 +11,7 @@ const defaultValues = {
   isCartEmpty: true,
   showDisplay: false,
   isAvailable: true,
+  currentImageIndex: 0,
   cart: [],
   addProductToCart: () => {},
   client: client,
@@ -30,6 +31,7 @@ const isBrowser = typeof window !== "undefined"
 
 export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = useState(defaultValues.checkout)
+  const [currentImageIndex, setCurrentImageIndex] = useState(defaultValues.currentImageIndex)
   const [isCartOpen, setCartOpen] = useState(false)
   const [isCartEmpty, setCartEmpty] = useState(true)
   const [showDisplay, setShowDisplay] = useState(false)
