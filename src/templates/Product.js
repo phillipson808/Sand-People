@@ -73,7 +73,7 @@ const Product = props => {
 
   let currentVariantId = variantArray[0][0]
 
-  let image = variantArray.image ? variantArray[0][1] : placeholder;
+  let image = variantArray[0][1];
   let imageCount = props.data.shopifyProduct.image ? props.data.shopifyProduct.images.length : 0
   let imagesArray = props.data.shopifyProduct.images ? props.data.shopifyProduct.images : []
 
