@@ -5,6 +5,8 @@ import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
 import Layout from '../components/Layout';
+import placeholder from '../img/hula-placeholder-01-compressor.png';
+
 
 export const query = graphql`
   query($slug: String!) {
@@ -92,10 +94,10 @@ const getVendorList = (products) => {
                   <div>
                     <Link to={`/products/${item.handle}`}>
                       <div className={styles.gridImageContainer}>
-                        <Img
+                        {item.images[0] ? <Img
                           className={styles.gridImage}
                           fluid={item.images[0].localFile.childImageSharp.fluid}
-                        ></Img>
+                        ></Img> : <img className={styles.gridImage}src={placeholder}></img>}
                       </div>
                     </Link>
                   </div>

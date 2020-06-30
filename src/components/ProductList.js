@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from "../styles/product.module.scss"
 import Img from "gatsby-image"
 import warnIcon from "../img/exclamation-red.svg"
+import placeholder from '../img/hula-placeholder-01-compressor.png';
 
 const Products = () => {
   let data = useStaticQuery(graphql`
@@ -57,12 +58,13 @@ const Products = () => {
                 <div>
                   <Link to={`/products/${item.node.handle}`}>
                     <div className={styles.gridImageContainer}>
+                    {item.node.images[0] ? 
                       <Img
                         className={styles.gridImage}
                         fluid={
-                          item.node.images[0].localFile.childImageSharp.fluid
+                          item.node.images[0] ? item.node.images[0].localFile.childImageSharp.fluid : <div></div>
                         }
-                      ></Img>
+                      ></Img> : <img className={styles.gridImage}src={placeholder}></img>}
                     </div>
                   </Link>
                 </div>

@@ -4,6 +4,8 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
+import placeholder from '../img/hula-placeholder-01-compressor.png'
+
 const parse = require("html-react-parser")
 
 export const query = graphql`
@@ -59,23 +61,23 @@ const Product = props => {
 
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
     return [
-      variant.shopifyId,
-      variant.image.localFile["childImageSharp"].fluid.src,
-      variant.title,
-      variant.availableForSale,
-      variant.price,
-      variant.id,
-      variant.vendor,
+      variant.shopifyId ? variant.shopifyId : '',
+      variant.image ? variant.image.localFile["childImageSharp"].fluid.src : placeholder,
+      variant.title ? variant.title : '',
+      variant.availableForSale ? variant.availableForSale : '',
+      variant.price ? variant.price : '',
+      variant.id ? variant.id : '',
+      variant.vendor ? variant.vendor : '',
     ]
   })
 
   let currentVariantId = variantArray[0][0]
 
-  let image = variantArray[0][1]
-  let imageCount = props.data.shopifyProduct.images.length
-  let imagesArray = props.data.shopifyProduct.images
-  let localImageIndex = 0
-  let initialAvailability = variantArray[0][3]
+  let image = variantArray.image ? variantArray[0][1] : placeholder;
+  let imageCount = props.data.shopifyProduct.image ? props.data.shopifyProduct.images.length : 0
+  let imagesArray = props.data.shopifyProduct.images ? props.data.shopifyProduct.images : []
+
+  let initialAvailability = variantArray[0][3] ? variantArray[0][3] : false;
 
   let updateItem = (image, id, isAvailable) => {
     setImageSrc(image)
@@ -83,54 +85,10 @@ const Product = props => {
     setIsAvailable(isAvailable)
   }
 
-  let nextImage = () => {
-    try {
-      if (currentImageIndex === imageCount - 1) {
-        console.log('hit 1')
-        setCurrentImageIndex(0)
-        localImageIndex = 0;
-      } else if (currentImageIndex < imageCount - 1) {
-        setCurrentImageIndex(currentImageIndex + 1)
-        console.log('hit 2')
-        localImageIndex = currentImageIndex + 1;
-      } else {
-        setCurrentImageIndex(0)
-        localImageIndex = 0;
-        console.log('hit 3')
-      }
-      setImageSrc(
-        imagesArray[localImageIndex].localFile["childImageSharp"].fluid.src
-      )
-      console.log('hit too')
-    } catch (e) {
-      console.error(e)
-    }
-  }
-  let previousImage = () => {
-    try {
-      if (currentImageIndex === 0) {
-        setCurrentImageIndex(imageCount - 1)
-        localImageIndex = imageCount-1;
-        console.log('Hit 1')
-        console.log(localImageIndex);
-      } else if (currentImageIndex < imageCount) {
-        setCurrentImageIndex(currentImageIndex - 1)
-        localImageIndex = currentImageIndex - 1;
-        console.log('Hit 2', localImageIndex)
 
-      } else {
-        setCurrentImageIndex(0)
-        localImageIndex = 0;
-        console.log('Hit 3', localImageIndex)
- 
-      }
-      setImageSrc(
-        imagesArray[localImageIndex].localFile["childImageSharp"].fluid.src
-      )
-    } catch (e) {
-      console.error(e)
-    }
-  }
+
+  
+  
 
   useEffect(() => {
     setImageSrc(image)
@@ -147,16 +105,6 @@ const Product = props => {
           <div className={styles.imageContainer}>
             <div>
               <img src={imageSrc} alt="Product Image"></img>
-              {imageCount !== 1 ? (
-                <button onClick={previousImage}>previous</button>
-              ) : (
-                <div></div>
-              )}
-              {imageCount !== 1 ? (
-                <button onClick={nextImage}>next</button>
-              ) : (
-                <div></div>
-              )}
             </div>
           </div>
           <div className={styles.contentContainer}>
