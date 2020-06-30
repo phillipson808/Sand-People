@@ -53,6 +53,43 @@
   width: 400px;
 }
 
+.productImages {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  margin-bottom: 50px;
+
+}
+
+.productImages img {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+  transition: all 0.6s ease-in-out;
+}
+
+.productVariantContainer {
+  height: 90px;
+  width: 90px;
+  overflow: hidden;
+}
+
+
+
+.productImages div:hover {
+  cursor: pointer;
+  
+
+
+  img {
+    height: 90px;
+    width: 90px;
+    
+  }
+  
+}
+
 .variantButtonContainer {
   display: flex;
   justify-content: flex-start;
@@ -185,6 +222,9 @@
 
 .hide {
   display: none;
+}
+
+.show {
 }
 
 .priceContainer {

@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import styles from "../styles/productpage.module.scss"
 import AddToCart from "../components/AddToCart"
 import warnIcon from "../img/exclamation-red.svg"
-import placeholder from '../img/hula-placeholder-01-compressor.png'
+import placeholder from "../img/hula-placeholder-01-compressor.png"
 
 const parse = require("html-react-parser")
 
@@ -61,23 +61,28 @@ const Product = props => {
 
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
     return [
-      variant.shopifyId ? variant.shopifyId : '',
-      variant.image ? variant.image.localFile["childImageSharp"].fluid.src : placeholder,
-      variant.title ? variant.title : '',
-      variant.availableForSale ? variant.availableForSale : '',
-      variant.price ? variant.price : '',
-      variant.id ? variant.id : '',
-      variant.vendor ? variant.vendor : '',
+      variant.shopifyId ? variant.shopifyId : "",
+      variant.image
+        ? variant.image.localFile["childImageSharp"].fluid.src
+        : placeholder,
+      variant.title ? variant.title : "",
+      variant.availableForSale ? variant.availableForSale : "",
+      variant.price ? variant.price : "",
+      variant.id ? variant.id : "",
+      variant.vendor ? variant.vendor : "",
+      variant.images ? variant.images : [],
     ]
   })
 
   let currentVariantId = variantArray[0][0]
 
-  let image = variantArray[0][1];
-  let imageCount = props.data.shopifyProduct.image ? props.data.shopifyProduct.images.length : 0
-  let imagesArray = props.data.shopifyProduct.images ? props.data.shopifyProduct.images : []
+  let image = variantArray[0][1]
 
-  let initialAvailability = variantArray[0][3] ? variantArray[0][3] : false;
+  let imagesArray = props.data.shopifyProduct.images
+    ? props.data.shopifyProduct.images
+    : []
+
+  let initialAvailability = variantArray[0][3] ? variantArray[0][3] : false
 
   let updateItem = (image, id, isAvailable) => {
     setImageSrc(image)
@@ -85,17 +90,17 @@ const Product = props => {
     setIsAvailable(isAvailable)
   }
 
-
-
-  
-  
+  let updateImage = image => {
+    setImageSrc(image)
+  }
 
   useEffect(() => {
     setImageSrc(image)
-    setCurrentImageIndex(0);
+    setCurrentImageIndex(0)
     setVariantId(currentVariantId)
     setIsAvailable(initialAvailability)
     updateItem(image, currentVariantId, initialAvailability)
+    console.log("variant array", variantArray)
   }, [])
 
   return (
@@ -105,6 +110,35 @@ const Product = props => {
           <div className={styles.imageContainer}>
             <div>
               <img src={imageSrc} alt="Product Image"></img>
+            </div>
+            <div className={styles.productImages}>
+              {imagesArray && variantArray.length === 1
+                ? imagesArray.map(image => {
+                    return (
+                      <div className={imagesArray.length > 1 ? styles.productVariantContainer : styles.hide}>
+                        <img
+                          src={image.localFile["childImageSharp"].fluid.src}
+                          onClick={() => {
+                            updateImage(
+                              image.localFile["childImageSharp"].fluid.src
+                            )
+                          }}
+                        ></img>
+                      </div>
+                    )
+                  })
+                : variantArray.map(item => {
+                    return (
+                      <div className={variantArray.length > 1 ? styles.productVariantContainer : styles.hide}>
+                        <img
+                          src={item[1]}
+                          onClick={() => {
+                            updateItem(item[1], item[0], item[3])
+                          }}
+                        ></img>
+                      </div>
+                    )
+                  })}
             </div>
           </div>
           <div className={styles.contentContainer}>
