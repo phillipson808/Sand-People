@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 #container {
   width: 90%;
   display: flex;
@@ -15,6 +16,8 @@
 #container h2 {
   text-align: left;
   font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+  color: rgb(68, 68, 68);
+
   letter-spacing: 1px;
   margin-bottom: 30px;
 }
@@ -51,7 +54,7 @@ a:hover {
 }
 
 .description h4 {
-  color: #000;
+  color: rgb(100, 100, 100);
 
 }
 .description {
