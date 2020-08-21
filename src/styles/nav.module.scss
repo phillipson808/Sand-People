@@ -22,6 +22,8 @@
   display: none;
 }
 
+
+
 #productsLink {
   position: relative;
 }
@@ -80,6 +82,7 @@
 
   }
 
+
   .line {
     border: 1px solid #1b1b1b;;
     width: 25px;
@@ -88,6 +91,24 @@
 
   #mobileNav {
     height: 70px;
+  }
+
+  .mobileWidthContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+  }
+
+  #mobileCartIcon {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    z-index: 100;
   }
 
   #Nav {

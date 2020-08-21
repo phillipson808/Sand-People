@@ -37,9 +37,28 @@ const Nav = () => {
   return (
     <div>
       <nav id={styles.mobileNav}>
+  
+
         <Link to="/">
           <img src={logo} alt="logo" className={styles.logo}></img>
         </Link>
+    
+    
+      <div>
+        {cartTransitions.map(({ item, key, props }) => {
+          //Item takes place of isCartOpen boolean
+          return item && <Cart key={key} style={props} />
+        })}
+      </div>
+          {/*Cart Icon Starts here */}
+          <div className={styles.cartContainer} id={styles.mobileCartIcon} onClick={toggleCartOpen}>
+          <div className={styles.cart}>
+            <img src={cartImage}></img>
+            <span className={styles.qty}>{checkout ? checkout.lineItems.reduce((total, item) => {
+              return total + item.quantity
+            }, 0) : <div></div>}</span>
+          </div>
+        </div>
         <div onClick={toggleDisplay} className={styles.hamburger}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
