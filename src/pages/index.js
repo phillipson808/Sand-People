@@ -8,12 +8,6 @@ const Home = () => {
     <Layout>
       <div id={styles.Home}>
         <div id={styles.Showcase}>
-          <div className={styles.warningHeader}>
-            <p>
-              Aloha! Our site will not accept payments while we work out our shipping methods but feel
-              free to browse!
-            </p>
-          </div>
           <div className={styles.title}>
             <h1>E Komo Mai</h1>
             <p>

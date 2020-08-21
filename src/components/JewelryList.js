@@ -59,10 +59,12 @@ const Jewelry = () => {
         </div>
       </div>
       <div className={styles.container}>
+
         <div className={styles.grid}>
           {data.map(item => {
             return (
               <div className={styles.productImage} key={item.id}>
+              
                 <Link to={`/products/${item.handle}`}>
                   <Img
                     className={styles.gridImage}
