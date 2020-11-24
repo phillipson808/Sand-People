@@ -44,7 +44,7 @@ plugins: [
     
   },
   {
-    resolve: `gatsby-plugin-prefetch-google-fonts`,
+    resolve: `gatsby-plugin-google-fonts`,
     options: {
       fonts: [
         {
@@ -56,6 +56,7 @@ plugins: [
           variants: [`400`, `700`]
         },
       ],
+      display: 'swap'
     },
   },
   {
