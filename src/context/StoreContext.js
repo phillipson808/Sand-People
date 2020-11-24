@@ -60,6 +60,7 @@ export const StoreProvider = ({ children }) => {
       if (isBrowser) {
         localStorage.setItem("checkout_id", newCheckout.id)
       }
+      return newCheckout;
     } catch (e) {
       console.error(e)
     }
@@ -117,8 +118,10 @@ export const StoreProvider = ({ children }) => {
         newCheckout = await client.checkout.fetch(currentCheckoutId)
         if (newCheckout.completedAt) {
           newCheckout = await getNewId()
+         
         }
       } else {
+        
         newCheckout = await getNewId()
       }
       setCheckout(newCheckout)
