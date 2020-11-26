@@ -44,19 +44,12 @@ plugins: [
     
   },
   {
-    resolve: `gatsby-plugin-google-fonts`,
+    resolve: `gatsby-plugin-web-font-loader`,
     options: {
-      fonts: [
+      google: 
         {
-          family: `Source Sans Pro`,
-          variants: [`400`, `700`]
-        },
-        {
-          family: `Josefin Sans`,
-          variants: [`400`, `700`]
-        },
-      ],
-      display: 'swap'
+          families: [`Source Sans Pro`, `Josefin Sans`]
+        }
     },
   },
   {
