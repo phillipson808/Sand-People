@@ -6,6 +6,12 @@ import { Link } from "gatsby"
 const Home = () => {
   return (
     <Layout>
+      <div className={styles.warning}>
+        <div className={styles.warningcontainer}>
+        <h1>Site Temporarily Closed</h1>
+        <p>Due to a landslide in Hanalei, Kauai our site is temporarily closed until further notice. Mahalo for your patience and support!</p>
+        </div>
+      </div>
       <div id={styles.Home}>
         <div id={styles.Showcase}>
           <div className={styles.title}>

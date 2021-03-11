@@ -8,6 +8,10 @@ import phone from "../img/phone.svg"
 const locations = () => {
   return (
     <Layout>
+      <div className={styles.warning}>
+        <h1>Warning</h1>
+        
+      </div>
       {/*Main Showcase*/}
       <div id={styles.Showcase}>
         <div className={styles.showcaseContent}>
