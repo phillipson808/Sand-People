@@ -80,33 +80,33 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/products" onClick={toggleDisplay}>
               All Products
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/gifts" onClick={toggleDisplay}>
               Gifts
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/jewelry" onClick={toggleDisplay}>
               Jewelry
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/locations" onClick={toggleDisplay}>
               Locations
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/about" onClick={toggleDisplay}>
               About
             </Link>
           </li>
 
           <li>
-            <Link to="/" onClick={toggleDisplay}>
+            <Link to="/shoppingcart" onClick={toggleDisplay}>
               Cart
             </Link>
           </li>
@@ -124,23 +124,23 @@ const Nav = () => {
             </li>
             <li>
               <div className={styles.dropdownContainer}>
-                <Link to="/" id={styles.productsLink}>
+                <Link to="/products" id={styles.productsLink}>
                   <span>Products</span>
                   <img src={arrow} alt="" className={styles.arrowIcon}></img>
                 </Link>
                 <div id={styles.dropdown}>
-                  <Link to="/">All</Link>
-                  <Link to="/">Gifts</Link>
-                  <Link to="/">Jewelry</Link>
+                  <Link to="/products">All</Link>
+                  <Link to="/gifts">Gifts</Link>
+                  <Link to="/jewelry">Jewelry</Link>
                 </div>
               </div>
             </li>
 
             <li>
-              <Link to="/">Locations</Link>
+              <Link to="/locations">Locations</Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
