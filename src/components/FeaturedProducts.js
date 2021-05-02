@@ -58,7 +58,7 @@ const FeaturedProducts = () => {
               <Link to={`/products/${item.handle}`}>
                 <Img
                   className={styles.gridImage}
-                  fluid={item.images[0].localFile.childImageSharp.fluid}
+                  fluid={item.images[0].localFile.childImageSharp.fluid ? item.images[0].localFile.childImageSharp.fluid : <div></div>}
                 ></Img>
               </Link>
             </div>

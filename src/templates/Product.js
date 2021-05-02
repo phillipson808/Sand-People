@@ -62,8 +62,8 @@ const Product = props => {
   let variantArray = props.data.shopifyProduct.variants.map(variant => {
     return [
       variant.shopifyId ? variant.shopifyId : "",
-      variant.image
-        ? variant.image.localFile["childImageSharp"].fluid.src
+      variant.image.image.localFile["childImageSharp"].fluid.src
+        ? variant.image.localFile["childImageSharp"].fluid.src 
         : placeholder,
       variant.title ? variant.title : "",
       variant.availableForSale ? variant.availableForSale : "",
@@ -117,10 +117,10 @@ const Product = props => {
                     return (
                       <div className={imagesArray.length > 1 ? styles.productVariantContainer : styles.hide}>
                         <img
-                          src={image.localFile["childImageSharp"].fluid.src}
+                          src={image.localFile["childImageSharp"].fluid.src ? image.localFile["childImageSharp"].fluid.src : <div></div>}
                           onClick={() => {
                             updateImage(
-                              image.localFile["childImageSharp"].fluid.src
+                              image.localFile["childImageSharp"].fluid.src ? image.localFile["childImageSharp"].fluid.src : <div></div>
                             )
                           }}
                         ></img>
