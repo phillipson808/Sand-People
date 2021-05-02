@@ -40,6 +40,7 @@ const Products = () => {
     }
   `)
   data = data.allShopifyProduct.edges;
+  console.log('Data', data);
 
 
   return (
@@ -62,7 +63,7 @@ const Products = () => {
                       <Img
                         className={styles.gridImage}
                         fluid={
-                          item.node.images[0] ? item.node.images[0].localFile.childImageSharp.fluid : <div></div>
+                         item.node.images[0].localFile.childImageSharp.fluid ? item.node.images[0].localFile.childImageSharp.fluid : <div></div>
                         }
                       ></Img> : <img className={styles.gridImage}src={placeholder}></img>}
                     </div>
