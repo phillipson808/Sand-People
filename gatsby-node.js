@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const sharp = require('sharp');
 
 sharp.cache(false);
-sharp.simd(false);v
+sharp.simd(false);
 
   
 }
