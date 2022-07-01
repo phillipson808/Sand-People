@@ -21,7 +21,7 @@ const FeaturedProducts = () => {
                 localFile {
                   childImageSharp {
                     fluid(quality: 100, maxWidth: 500) {
-                      ...GatsbyImageSharpFluid_tracedSVG
+                      ...GatsbyImageSharpFluid
                     }
                   }
                 }
