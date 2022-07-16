@@ -16,7 +16,7 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.27.2",
+    "gatsby": "2.29.0",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-offline": "^3.5.0",
@@ -30,7 +30,6 @@
     "gatsby-transformer-sharp": "^2.7.0",
     "google-translate": "^3.0.0",
     "html-react-parser": "^0.10.5",
-    "node-sass": "^7.0.0",
     "react": "^16.14.0",
     "react-cookies": "^0.1.1",
     "react-dom": "^16.14.0",
@@ -39,6 +38,7 @@
     "react-redux": "^7.2.2",
     "react-spring": "^8.0.27",
     "redux": "^4.0.5",
+    "sass": "^1.53.0",
     "shopify-buy": "^2.11.0"
   },
   "devDependencies": {
